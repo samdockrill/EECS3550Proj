@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace NutriWeek.InputSystems
 {
-    internal class ScanIn
+    public class ScanIn
     {
         void ReadyCamera()
         {

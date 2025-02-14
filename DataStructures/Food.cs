@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 namespace NutriWeek.DataStructures
 {
-    internal class Food
+    public class Food
     {
-        public NutritionData FoodData;
-        public string Name;
-        public string Manufacturuer;
-        public Unit Units;
+        public NutritionData FoodData = new NutritionData();
+        public string Name = "";
+        public string Manufacturuer = "";
+        public Unit Units = new Unit();
     }
 }

@@ -7,14 +7,15 @@ using System.Threading.Tasks;
 
 namespace NutriWeek
 {
-    public class DataStorage
+    public static class DataStorage
     {
-        Food LoadFood(string foodName)
+        public static NutritionData DefaultDVs = LoadDefaultDVs();
+        public static Food LoadFood(string foodName)
         {
             return new Food();
         }
 
-        void StoreFood(Food food)
+        public static void StoreFood(Food food)
         {
 
         }
@@ -23,12 +24,12 @@ namespace NutriWeek
         /// Retrieves a day object, containing a list of foods etc
         /// </summary>
         /// <param name="date">The date of the day you want to load</param>
-        Day LoadDay(string date)
+        public static Day LoadDay(string date)
         {
             return new Day();
         }
 
-        void StoreDay(Day day)
+        public static void StoreDay(Day day)
         {
 
         }
@@ -37,19 +38,19 @@ namespace NutriWeek
         /// Pull the pre-generated food name tree out of storage
         /// </summary>
         /// <returns></returns>
-        NameTree LoadNameTree()
-        {
-            return new NameTree();
-        }
-
-        void StoreNameTree(NameTree tree)
+        public static void LoadNameTree()
         {
 
         }
 
-        void LoadDefaultDVs()
+        public static void StoreNameTree()
         {
 
+        }
+
+        public static NutritionData LoadDefaultDVs()
+        {
+            return new NutritionData();
         }
     }
 }

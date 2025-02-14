@@ -9,7 +9,25 @@ namespace NutriWeek.DataStructures
     /// <summary>
     /// Custom tree structure to allow very fast searching of food names
     /// </summary>
-    internal class NameTree
+    public static class NameTree
     {
+        static TreeNode Root = new TreeNode();
+    }
+
+    class TreeNode
+    {
+        char Value;
+        TreeNode? Parent;
+        List<TreeNode> Children = new List<TreeNode>();
+        public TreeNode() { }
+        public TreeNode(char value, TreeNode parent)
+        {
+            Value = value;
+            Parent = parent;
+        }
+        void AddChild(TreeNode child)
+        {
+            Children.Add(child);
+        }
     }
 }

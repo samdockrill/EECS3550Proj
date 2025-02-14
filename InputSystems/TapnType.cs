@@ -7,10 +7,8 @@ using System.Threading.Tasks;
 
 namespace NutriWeek.InputSystems
 {
-    internal class TapnType
+    public class TapnType
     {
-        NameTree Foodnames = DataStorage.LoadFoodnameTree();
-
         /// <summary>
         /// Returns a list of strings containing all foods that match the currently typed input
         /// Could return a list of Food objects instead, potentially? Either one should work fine

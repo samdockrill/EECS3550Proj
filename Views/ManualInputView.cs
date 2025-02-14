@@ -7,8 +7,12 @@ using System.Threading.Tasks;
 
 namespace NutriWeek.Views
 {
-    internal class ManualInput
+    public class ManualInputView : View
     {
+        public override void Render()
+        {
+
+        }
         Food WriteFoodData()
         {
             return new Food();

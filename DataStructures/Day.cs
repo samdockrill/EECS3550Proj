@@ -6,13 +6,13 @@ using System.Threading.Tasks;
 
 namespace NutriWeek.DataStructures
 {
-    internal class Day
+    public class Day
     {
         /// <summary>
         /// The calendar date this day object represents
         /// Used to store/load it
         /// </summary>
-        string Date;
+        string Date = "";
 
         List<Food> Meals = new List<Food>();
         Dictionary<string, int> DailyValues = new Dictionary<string, int>();

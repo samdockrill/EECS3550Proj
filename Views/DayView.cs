@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace NutriWeek.Views
 {
-    internal class DayView
+    public class DayView : View
     {
-        void RenderDayView()
+        public override void Render()
         {
 
         }

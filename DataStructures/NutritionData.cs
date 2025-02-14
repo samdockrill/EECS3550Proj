@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace NutriWeek.DataStructures
 {
-    internal class NutritionData
+    public class NutritionData
     {
         public Dictionary<string, int> FoodContents = new Dictionary<string, int>();
 

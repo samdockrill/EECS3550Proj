@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace NutriWeek.DataStructures
 {
-    internal class Unit
+    public class Unit
     {
     }
 }

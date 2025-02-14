@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace NutriWeek.InputSystems
 {
-    internal class RecProvider
+    public class RecProvider
     {
         /// <summary>
         /// Generates a recomendation for a food item

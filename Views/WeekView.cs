@@ -7,11 +7,11 @@ using System.Threading.Tasks;
 
 namespace NutriWeek.Views
 {
-    internal class WeekView
+    public class WeekView : View
     {
         List<Day> Days = new List<Day>();
 
-        void RenderWeekView()
+        public override void Render()
         {
 
         }
