@@ -8,7 +8,7 @@ namespace NutriWeek.DataStructures
 {
     internal class Food
     {
-        public NutritionTable FoodData;
+        public NutritionData FoodData;
         public string Name;
         public string Manufacturuer;
         public Unit Units;
