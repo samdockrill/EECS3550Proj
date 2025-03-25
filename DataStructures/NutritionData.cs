@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace NutriWeek.DataStructures
+namespace NutriWeekMAUI.DataStructures
 {
     public class NutritionData
     {
