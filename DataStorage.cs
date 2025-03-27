@@ -52,5 +52,10 @@ namespace NutriWeekMAUI
         {
             return new NutritionData();
         }
+
+        public static Food NameLookup(string Name)
+        {
+            return new Food();
+        }
     }
 }

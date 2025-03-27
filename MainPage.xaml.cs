@@ -4,6 +4,8 @@
     {
         int count = 0;
 
+        int asdf = 1999;
+
         public MainPage()
         {
             InitializeComponent();
@@ -20,6 +22,9 @@
 
             SemanticScreenReader.Announce(CounterBtn.Text);
         }
-    }
 
+        private void OnFoodClicked(object sender, EventArgs e)
+        {
+        }
+    }
 }
