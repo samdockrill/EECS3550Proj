@@ -26,7 +26,7 @@
 
             <Button
                 x:Name="CounterBtn"
-                Text="{asdf}"
+                Text="Click Me"
                 SemanticProperties.Hint="Counts the number of times you click"
                 Clicked="OnCounterClicked"
                 HorizontalOptions="Fill" />
