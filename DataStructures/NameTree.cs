@@ -1,33 +1,87 @@
-﻿using System;
+﻿using NutriWeek.DataStructures;
+using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.ConstrainedExecution;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Linq;
 
-namespace NutriWeekMAUI.DataStructures
+namespace NutriWeek.DataStructures
 {
     /// <summary>
     /// Custom tree structure to allow very fast searching of food names
     /// </summary>
+
+    public class TreeNode
+    {
+        public string FoodName = "";
+        public TreeNode Left = null;
+        public TreeNode Middle = null;
+        public TreeNode Right = null;
+        public TreeNode Parent = null;
+        public TreeNode Root = null;
+        public TreeNode(String Name)
+        {
+            FoodName = Name;
+        }
+    }
     public static class NameTree
     {
-        static TreeNode Root = new TreeNode();
-    }
+        public static TreeNode Root = null;
+        public static void Insert(TreeNode Node)
+        {
+            if (Root == null)
+            {
+                Root = Node;
+                Root.Parent = null;
+                return;
+            }
 
-    class TreeNode
-    {
-        char Value;
-        TreeNode? Parent;
-        List<TreeNode> Children = new List<TreeNode>();
-        public TreeNode() { }
-        public TreeNode(char value, TreeNode parent)
-        {
-            Value = value;
-            Parent = parent;
-        }
-        void AddChild(TreeNode child)
-        {
-            Children.Add(child);
+            TreeNode Cur = Root;
+
+            while (Cur != null)
+            {
+                if (Node.FoodName[0].CompareTo(Cur.FoodName[0]) < 0)
+                {
+                    if (Cur.Left == null)
+                    {
+                        Cur.Left = Node;
+                        Node.Parent = Cur;
+                        Cur = null;
+                    }
+                    else
+                    {
+                        Cur = Cur.Left;
+                    }
+                }
+                else if (Node.FoodName[0].CompareTo(Cur.FoodName[0]) > 0)
+                {
+                    if (Cur.Right == null)
+                    {
+                        Cur.Right = Node;
+                        Node.Parent = Cur;
+                        Cur = null;
+                    }
+                    else
+                    {
+                        Cur = Cur.Right;
+                    }
+                }
+                else
+                {
+                    if (Cur.Middle == null)
+                    {
+                        Cur.Middle = Node;
+                        Node.Parent = Cur;
+                        Cur = null;
+                    }
+                    else
+                    {
+                        Cur = Cur.Middle;
+                    }
+                }
+            }
         }
     }
 }
