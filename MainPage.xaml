@@ -25,7 +25,7 @@
                 TextColor="DarkSlateGray"
                 Style="{StaticResource SubHeadline}"
                 SemanticProperties.HeadingLevel="Level2"
-                SemanticProperties.Description="Welcome to dot net Multi platform App U I" />
+                SemanticProperties.Description="General description of the NutriWeek application" />
 
             <Button
                 x:Name="CounterBtn"

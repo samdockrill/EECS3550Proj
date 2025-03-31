@@ -7,13 +7,13 @@
     Shell.BackgroundColor="MediumSeaGreen"
     Shell.ForegroundColor="DarkSlateGray"
     Shell.TitleColor="DarkSlateGray"
-    Shell.FlyoutBehavior="Flyout"
+    Shell.FlyoutBehavior="Disabled"
     FlyoutBackgroundColor="White"
     Title="NutriWeekMAUI"
     >
 
     <ShellContent
-        Title="Home"
+        Title="NutriWeek"
         ContentTemplate="{DataTemplate local:MainPage}"
         Route="MainPage" />
 
