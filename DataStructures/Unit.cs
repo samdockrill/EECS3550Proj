@@ -17,8 +17,8 @@ namespace NutriWeekMAUI.DataStructures
             { Prefix.nano, 0.000000001 },
         };
 
-        UnitType type;
-        double amount;
+        public UnitType type = UnitType.solid;
+        public double amount;
 
         /// <summary>
         /// Converts between units
@@ -31,7 +31,7 @@ namespace NutriWeekMAUI.DataStructures
         }
     }
 
-    enum UnitType
+    public enum UnitType
     {
         solid,
         liquid
