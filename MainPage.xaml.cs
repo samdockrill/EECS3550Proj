@@ -4,7 +4,7 @@
     {
         int count = 0;
 
-        int asdf = 1999;
+        //int asdf = 1999;
 
         public MainPage()
         {
