@@ -21,7 +21,7 @@
                 SemanticProperties.HeadingLevel="Level1" />
 
             <Label
-                Text="An app designed to&#10;create and track&#10;weekly meal plans"
+                Text="A weekly meal&#10;planner and tracker"
                 TextColor="DarkSlateGray"
                 Style="{StaticResource SubHeadline}"
                 SemanticProperties.HeadingLevel="Level2"
@@ -32,7 +32,7 @@
                 BackgroundColor="MediumSeaGreen"
                 Text="Click Here"
                 TextColor="DarkSlateGray"
-                SemanticProperties.Hint="Counts the number of times you click"
+                SemanticProperties.Hint="Navigates to a WeeksPage content page"
                 Clicked="OnCounterClicked"
                 HorizontalOptions="Fill" />
         </VerticalStackLayout>

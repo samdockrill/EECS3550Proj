@@ -3,63 +3,65 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="NutriWeekMAUI.WeeksPage"
              BackgroundColor="White">
-    
-    <VerticalStackLayout
-        Margin="10"
-        Spacing="8">
-        <Label 
-            Text="Weekly View"
-            TextColor="DarkSlateGray"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
 
-        <Button
-            x:Name="Week1Btn"
-            BackgroundColor="MediumSeaGreen"
-            Text="New Week"
-            TextColor="DarkSlateGray"
-            HorizontalOptions="Start"
-            VerticalOptions="Center"
-            Clicked="Week1Btn_Clicked" />
+    <ScrollView>
+        <VerticalStackLayout
+            Margin="10"
+            Spacing="8">
+            <Label 
+                Text="Weekly View"
+                TextColor="DarkSlateGray"
+                VerticalOptions="Center" 
+                HorizontalOptions="Center" />
 
-        <Button
-            x:Name="Week2Btn"
-            BackgroundColor="MediumSeaGreen"
-            Text="New Week"
-            TextColor="DarkSlateGray"
-            HorizontalOptions="Start"
-            VerticalOptions="Center"
-            IsVisible="False"
-            Clicked="Week2Btn_Clicked" />
+            <Button
+                x:Name="Week1Btn"
+                BackgroundColor="MediumSeaGreen"
+                Text="New Week"
+                TextColor="DarkSlateGray"
+                HorizontalOptions="Fill"
+                VerticalOptions="Center"
+                Clicked="Week1Btn_Clicked" />
 
-        <Button
-            x:Name="Week3Btn"
-            BackgroundColor="MediumSeaGreen"
-            Text="New Week"
-            TextColor="DarkSlateGray"
-            HorizontalOptions="Start"
-            VerticalOptions="Center"
-            IsVisible="False"
-            Clicked="Week3Btn_Clicked" />
+            <Button
+                x:Name="Week2Btn"
+                BackgroundColor="MediumSeaGreen"
+                Text="New Week"
+                TextColor="DarkSlateGray"
+                HorizontalOptions="Fill"
+                VerticalOptions="Center"
+                IsVisible="False"
+                Clicked="Week2Btn_Clicked" />
 
-        <Button
-            x:Name="Week4Btn"
-            BackgroundColor="MediumSeaGreen"
-            Text="New Week"
-            TextColor="DarkSlateGray"
-            HorizontalOptions="Start"
-            VerticalOptions="Center"
-            IsVisible="False"
-            Clicked="Week4Btn_Clicked" />
+            <Button
+                x:Name="Week3Btn"
+                BackgroundColor="MediumSeaGreen"
+                Text="New Week"
+                TextColor="DarkSlateGray"
+                HorizontalOptions="Fill"
+                VerticalOptions="Center"
+                IsVisible="False"
+                Clicked="Week3Btn_Clicked" />
 
-        <Button
-            x:Name="Week5Btn"
-            BackgroundColor="MediumSeaGreen"
-            Text="New Week"
-            TextColor="DarkSlateGray"
-            HorizontalOptions="Start"
-            VerticalOptions="Center"
-            IsVisible="False"
-            Clicked="Week5Btn_Clicked" />
-    </VerticalStackLayout>
+            <Button
+                x:Name="Week4Btn"
+                BackgroundColor="MediumSeaGreen"
+                Text="New Week"
+                TextColor="DarkSlateGray"
+                HorizontalOptions="Fill"
+                VerticalOptions="Center"
+                IsVisible="False"
+                Clicked="Week4Btn_Clicked" />
+
+            <Button
+                x:Name="Week5Btn"
+                BackgroundColor="MediumSeaGreen"
+                Text="New Week"
+                TextColor="DarkSlateGray"
+                HorizontalOptions="Fill"
+                VerticalOptions="Center"
+                IsVisible="False"
+                Clicked="Week5Btn_Clicked" />
+        </VerticalStackLayout>
+    </ScrollView>
 </ContentPage>
