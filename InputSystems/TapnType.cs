@@ -1,9 +1,11 @@
-﻿using NutriWeekMAUI.DataStructures;
+﻿using NutriWeek.DataStructures;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.ConstrainedExecution;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Linq;
 
 namespace NutriWeekMAUI.InputSystems
 {
@@ -55,7 +57,7 @@ namespace NutriWeekMAUI.InputSystems
                     else Cur = FirstNode.Left;
                 }
 
-                Cur = Root.Right;
+                Cur = NameTree.Root.Right;
                 FirstNode = null;
                 while (Cur != null) // Goes through the right half of the tree.
                 {
