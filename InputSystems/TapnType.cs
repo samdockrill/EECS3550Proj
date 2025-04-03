@@ -14,9 +14,10 @@ namespace NutriWeekMAUI.InputSystems
         /// Could return a list of Food objects instead, potentially? Either one should work fine
         /// </summary>
         /// <returns></returns>
-        List<string> GetAutocompleteList(string input)
+        
+        public static List<string> GetAutocompleteList(string input)
         {
-            TreeNode Cur = Root;
+            TreeNode Cur = NameTree.Root;
             TreeNode FirstNode = null;
             List<string> AutoCompleteList = new List<string>();
 
@@ -45,7 +46,7 @@ namespace NutriWeekMAUI.InputSystems
             {
                 while (Cur != null) // Goes through the root (middle) and left half of the tree.
                 {
-                    if (Cur.Parent == null) FirstNode = Root;
+                    if (Cur.Parent == null) FirstNode = NameTree.Root;
                     else if (Cur.FoodName[0].CompareTo(Cur.Parent.FoodName[0]) != 0) FirstNode = Cur;
 
                     if (Cur.FoodName.Contains(input)) AutoCompleteList.Add(Cur.FoodName);
@@ -58,7 +59,7 @@ namespace NutriWeekMAUI.InputSystems
                 FirstNode = null;
                 while (Cur != null) // Goes through the right half of the tree.
                 {
-                    if (Cur.Parent == null) FirstNode = Root;
+                    if (Cur.Parent == null) FirstNode = NameTree.Root;
                     else if (Cur.FoodName[0].CompareTo(Cur.Parent.FoodName[0]) != 0) FirstNode = Cur;
 
                     if (Cur.FoodName.Contains(input)) AutoCompleteList.Add(Cur.FoodName);
