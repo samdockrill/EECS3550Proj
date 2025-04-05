@@ -13,7 +13,7 @@
 
         private void OnCounterClicked(object sender, EventArgs e)
         {
-            Navigation.PushAsync(new WeeksPage());
+            Navigation.PushAsync(new DisclaimerPage());
 
             /*count++;
 

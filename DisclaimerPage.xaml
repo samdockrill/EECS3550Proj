@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="NutriWeekMAUI.DisclaimerPage"
+             Title="DisclaimerPage"
+             BackgroundColor="White">
+
+    <ScrollView>
+        <VerticalStackLayout
+        Padding="30,0"
+        Spacing="50">
+
+            <Label
+            Text="Disclaimer"
+            TextColor="DarkSlateGray"
+            Style="{StaticResource Headline}"
+            SemanticProperties.HeadingLevel="Level1" />
+
+            <Label
+            Text="This prototype of the NutriWeek Meal Planner and Tracker does not factor potential allergies in the information collected for chosen food."
+            FontSize="18"
+            TextColor="DarkSlateGray"
+            SemanticProperties.HeadingLevel="Level2"
+            SemanticProperties.Description="General description of the NutriWeek application" />
+
+            <Label
+            Text="It is important that you be aware of what types of ingredients might cause a potential allergic reaction for you."
+            FontSize="18"
+            TextColor="DarkSlateGray"
+            SemanticProperties.HeadingLevel="Level3"
+            SemanticProperties.Description="General description of the NutriWeek application" />
+
+            <Label
+            Text="Please consult a doctor and review desired food items thoroughly before using the NutriWeek prototype."
+            FontSize="18"
+            TextColor="DarkSlateGray"
+            SemanticProperties.HeadingLevel="Level4"
+            SemanticProperties.Description="General description of the NutriWeek application" />
+
+            <Button
+            x:Name="DisclaimerBtn"
+            BackgroundColor="MediumSeaGreen"
+            Text="I Understand"
+            TextColor="DarkSlateGray"
+            SemanticProperties.Hint="Navigates to a WeeksPage content page"
+            Clicked="DisclaimerBtn_Clicked"
+            HorizontalOptions="Fill" />
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

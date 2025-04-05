@@ -30,9 +30,9 @@
             <Button
                 x:Name="CounterBtn"
                 BackgroundColor="MediumSeaGreen"
-                Text="Click Here"
+                Text="Get started!"
                 TextColor="DarkSlateGray"
-                SemanticProperties.Hint="Navigates to a WeeksPage content page"
+                SemanticProperties.Hint="Navigates to the Disclaimer content page"
                 Clicked="OnCounterClicked"
                 HorizontalOptions="Fill" />
         </VerticalStackLayout>

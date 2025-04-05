@@ -2,17 +2,13 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="NutriWeekMAUI.WeeksPage"
+             Title="Weekly View"
              BackgroundColor="White">
 
     <ScrollView>
         <VerticalStackLayout
             Margin="10"
             Spacing="8">
-            <Label 
-                Text="Weekly View"
-                TextColor="DarkSlateGray"
-                VerticalOptions="Center" 
-                HorizontalOptions="Center" />
 
             <Button
                 x:Name="Week1Btn"
