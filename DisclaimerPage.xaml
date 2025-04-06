@@ -21,21 +21,21 @@
             FontSize="18"
             TextColor="DarkSlateGray"
             SemanticProperties.HeadingLevel="Level2"
-            SemanticProperties.Description="General description of the NutriWeek application" />
+            SemanticProperties.Description="Disclaimer Pt. 1" />
 
             <Label
             Text="It is important that you be aware of what types of ingredients might cause a potential allergic reaction for you."
             FontSize="18"
             TextColor="DarkSlateGray"
             SemanticProperties.HeadingLevel="Level3"
-            SemanticProperties.Description="General description of the NutriWeek application" />
+            SemanticProperties.Description="Disclaimer Pt. 2" />
 
             <Label
             Text="Please consult a doctor and review desired food items thoroughly before using the NutriWeek prototype."
             FontSize="18"
             TextColor="DarkSlateGray"
             SemanticProperties.HeadingLevel="Level4"
-            SemanticProperties.Description="General description of the NutriWeek application" />
+            SemanticProperties.Description="Disclaimer Pt. 3" />
 
             <Button
             x:Name="DisclaimerBtn"

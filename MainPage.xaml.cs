@@ -1,32 +1,19 @@
-﻿namespace NutriWeekMAUI
+﻿namespace NutriWeekMAUI;
+
+public partial class MainPage : ContentPage
 {
-    public partial class MainPage : ContentPage
+    public MainPage()
     {
-        int count = 0;
+        InitializeComponent();
+    }
 
-        //int asdf = 1999;
+    private void OnCounterClicked(object sender, EventArgs e)
+    {
+        Navigation.PushAsync(new DisclaimerPage());
+    }
 
-        public MainPage()
-        {
-            InitializeComponent();
-        }
-
-        private void OnCounterClicked(object sender, EventArgs e)
-        {
-            Navigation.PushAsync(new DisclaimerPage());
-
-            /*count++;
-
-            if (count == 1)
-                CounterBtn.Text = $"Clicked {count} time";
-            else
-                CounterBtn.Text = $"Clicked {count} times";
-
-            SemanticScreenReader.Announce(CounterBtn.Text);*/
-        }
-
-        private void OnFoodClicked(object sender, EventArgs e)
-        {
-        }
+    private void OnFoodClicked(object sender, EventArgs e)
+    {
     }
 }
+

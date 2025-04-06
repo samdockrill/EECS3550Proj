@@ -21,10 +21,5 @@ namespace NutriWeekMAUI
 
             return builder.Build();
         }
-
-        /*public static void SwitchTo(ContentPage whatever)
-        {
-
-        }*/
     }
 }
