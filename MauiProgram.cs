@@ -1,4 +1,5 @@
 ﻿using Microsoft.Extensions.Logging;
+using NutriWeekMAUI.ViewModels;
 
 namespace NutriWeekMAUI
 {
@@ -15,8 +16,17 @@ namespace NutriWeekMAUI
                     fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
                 });
 
+            builder.Services.AddSingleton<MainPage>();
+            builder.Services.AddSingleton<MainViewModel>();
+
+            builder.Services.AddSingleton<DisclaimerPage>();
+            builder.Services.AddSingleton<DisclaimerViewModel>();
+
+            builder.Services.AddSingleton<WeeksPage>();
+            builder.Services.AddSingleton<WeeksViewModel>();
+
 #if DEBUG
-    		builder.Logging.AddDebug();
+            builder.Logging.AddDebug();
 #endif
 
             return builder.Build();

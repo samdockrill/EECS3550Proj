@@ -1,19 +1,17 @@
-﻿namespace NutriWeekMAUI;
+﻿using NutriWeekMAUI.ViewModels;
+
+namespace NutriWeekMAUI;
 
 public partial class MainPage : ContentPage
 {
-    public MainPage()
+    public MainPage(MainViewModel vm)
     {
         InitializeComponent();
+        BindingContext = vm;
     }
 
-    private void OnCounterClicked(object sender, EventArgs e)
+    /*private void OnFoodClicked(object sender, EventArgs e)
     {
-        Navigation.PushAsync(new DisclaimerPage());
-    }
-
-    private void OnFoodClicked(object sender, EventArgs e)
-    {
-    }
+    }*/
 }
 

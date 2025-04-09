@@ -1,13 +1,15 @@
+using NutriWeekMAUI.ViewModels;
 using System.Threading.Tasks;
 
 namespace NutriWeekMAUI;
 
 public partial class DisclaimerPage : ContentPage
 {
-	public DisclaimerPage()
+	public DisclaimerPage(DisclaimerViewModel vm)
 	{
 		InitializeComponent();
-	}
+        BindingContext = vm;
+    }
 
     private void DisclaimerBtn_Clicked(object sender, EventArgs e)
     {

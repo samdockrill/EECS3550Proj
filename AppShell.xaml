@@ -8,7 +8,6 @@
     Shell.ForegroundColor="DarkSlateGray"
     Shell.TitleColor="DarkSlateGray"
     Shell.FlyoutBehavior="Disabled"
-    FlyoutBackgroundColor="White"
     Title="NutriWeekMAUI"
     >
 

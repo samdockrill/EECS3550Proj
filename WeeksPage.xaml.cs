@@ -7,7 +7,7 @@ namespace NutriWeekMAUI
             InitializeComponent();
         }
 
-        private void Week1Btn_Clicked(object sender, EventArgs e)
+        /*private void Week1Btn_Clicked(object sender, EventArgs e)
         {
             Week1Btn.Text = "WEEK 1";
             Week1Btn.TextColor = Colors.White;
@@ -48,7 +48,7 @@ namespace NutriWeekMAUI
             Week5Btn.Text = "WEEK 5";
             Week5Btn.TextColor = Colors.White;
             Week5Btn.BackgroundColor = Colors.SeaGreen;
-        }
+        }*/
     }
 }
 

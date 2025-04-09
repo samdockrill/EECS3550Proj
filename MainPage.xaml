@@ -2,6 +2,8 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="NutriWeekMAUI.MainPage"
+             xmlns:viewmodel="clr-namespace:NutriWeekMAUI.ViewModels"
+             x:DataType="viewmodel:MainViewModel"
              BackgroundColor="White">
 
     <ScrollView>
@@ -32,9 +34,11 @@
                 BackgroundColor="MediumSeaGreen"
                 Text="Get started!"
                 TextColor="DarkSlateGray"
+                BorderColor="DarkSlateGray"
+                BorderWidth="2"
                 SemanticProperties.Hint="Navigates to the Disclaimer content page"
-                Clicked="OnCounterClicked"
-                HorizontalOptions="Fill" />
+                HorizontalOptions="Fill"
+                Command="{Binding GoToDisclaimerPageCommand}"/>
         </VerticalStackLayout>
     </ScrollView>
 </ContentPage>

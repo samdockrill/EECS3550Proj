@@ -5,59 +5,46 @@
              Title="Weekly View"
              BackgroundColor="White">
 
-    <ScrollView>
-        <VerticalStackLayout
-            Margin="10"
-            Spacing="8">
+    <Grid
+        RowDefinitions="Auto, *"
+        ColumnDefinitions=".75*, .25*"
+        Padding="10"
+        RowSpacing="10"
+        ColumnSpacing="10">
 
-            <Button
-                x:Name="Week1Btn"
-                BackgroundColor="MediumSeaGreen"
-                Text="New Week"
-                TextColor="DarkSlateGray"
-                HorizontalOptions="Fill"
-                VerticalOptions="Center"
-                Clicked="Week1Btn_Clicked" />
-
-            <Button
-                x:Name="Week2Btn"
-                BackgroundColor="MediumSeaGreen"
-                Text="New Week"
-                TextColor="DarkSlateGray"
-                HorizontalOptions="Fill"
-                VerticalOptions="Center"
-                IsVisible="False"
-                Clicked="Week2Btn_Clicked" />
-
-            <Button
-                x:Name="Week3Btn"
-                BackgroundColor="MediumSeaGreen"
-                Text="New Week"
-                TextColor="DarkSlateGray"
-                HorizontalOptions="Fill"
-                VerticalOptions="Center"
-                IsVisible="False"
-                Clicked="Week3Btn_Clicked" />
-
-            <Button
-                x:Name="Week4Btn"
-                BackgroundColor="MediumSeaGreen"
-                Text="New Week"
-                TextColor="DarkSlateGray"
-                HorizontalOptions="Fill"
-                VerticalOptions="Center"
-                IsVisible="False"
-                Clicked="Week4Btn_Clicked" />
-
-            <Button
-                x:Name="Week5Btn"
-                BackgroundColor="MediumSeaGreen"
-                Text="New Week"
-                TextColor="DarkSlateGray"
-                HorizontalOptions="Fill"
-                VerticalOptions="Center"
-                IsVisible="False"
-                Clicked="Week5Btn_Clicked" />
-        </VerticalStackLayout>
-    </ScrollView>
+        <CollectionView
+            Grid.ColumnSpan="2">
+            <CollectionView.ItemsSource>
+                <x:Array Type="{x:Type x:String}">
+                    <x:String>WEEK 1</x:String>
+                    <x:String>WEEK 2</x:String>
+                    <x:String>WEEK 3</x:String>
+                    <x:String>WEEK 4</x:String>
+                    <x:String>WEEK 5</x:String>
+                </x:Array>
+            </CollectionView.ItemsSource>
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <SwipeView>
+                        <SwipeView.RightItems>
+                            <SwipeItems>
+                                <SwipeItem Text="Clear"
+                                           BackgroundColor="Firebrick"/>
+                            </SwipeItems>
+                        </SwipeView.RightItems>
+                        <Grid
+                            Padding="0, 10">
+                            <Border
+                            BackgroundColor="DarkSlateGray">
+                                <Label Text="{Binding .}"
+                                   FontSize="40"
+                                   BackgroundColor="MediumSeaGreen"
+                                   TextColor="DarkSlateGray"/>
+                            </Border>
+                        </Grid>
+                    </SwipeView>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+    </Grid>
 </ContentPage>
