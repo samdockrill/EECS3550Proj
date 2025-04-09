@@ -25,6 +25,12 @@ namespace NutriWeekMAUI
             builder.Services.AddSingleton<WeeksPage>();
             builder.Services.AddSingleton<WeeksViewModel>();
 
+            builder.Services.AddTransient<CurrentWeekPage>();
+            builder.Services.AddTransient<CurrentWeekViewModel>();
+
+            builder.Services.AddTransient<DayPage>();
+            builder.Services.AddTransient<DayViewModel>();
+
 #if DEBUG
             builder.Logging.AddDebug();
 #endif

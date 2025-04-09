@@ -1,4 +1,6 @@
-﻿using NutriWeekMAUI.ViewModels;
+﻿//written by Edward Keiper
+
+using NutriWeekMAUI.ViewModels;
 
 namespace NutriWeekMAUI;
 
@@ -9,9 +11,5 @@ public partial class MainPage : ContentPage
         InitializeComponent();
         BindingContext = vm;
     }
-
-    /*private void OnFoodClicked(object sender, EventArgs e)
-    {
-    }*/
 }
 

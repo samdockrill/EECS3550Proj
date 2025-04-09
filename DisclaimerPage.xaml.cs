@@ -1,5 +1,4 @@
 using NutriWeekMAUI.ViewModels;
-using System.Threading.Tasks;
 
 namespace NutriWeekMAUI;
 
@@ -9,21 +8,5 @@ public partial class DisclaimerPage : ContentPage
 	{
 		InitializeComponent();
         BindingContext = vm;
-    }
-
-    private void DisclaimerBtn_Clicked(object sender, EventArgs e)
-    {
-		/*var existingWeekPage = Navigation.NavigationStack.OfType<WeeksPage>().FirstOrDefault();
-
-        if (existingWeekPage != null)
-        {
-            await Navigation.PopToRootAsync();
-            await Navigation.PushAsync(existingWeekPage);
-        }
-        else
-        {
-            await Navigation.PushAsync(new WeeksPage());
-        }*/
-        Navigation.PushAsync(new WeeksPage());
     }
 }

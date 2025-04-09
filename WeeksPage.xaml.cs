@@ -1,10 +1,13 @@
+using NutriWeekMAUI.ViewModels;
+
 namespace NutriWeekMAUI
 {
     public partial class WeeksPage : ContentPage
     {
-        public WeeksPage()
+        public WeeksPage(WeeksViewModel vm)
         {
             InitializeComponent();
+            BindingContext = vm;
         }
 
         /*private void Week1Btn_Clicked(object sender, EventArgs e)

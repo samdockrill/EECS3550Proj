@@ -2,29 +2,25 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="NutriWeekMAUI.WeeksPage"
+             xmlns:viewmodel="clr-namespace:NutriWeekMAUI.ViewModels"
+             x:DataType="viewmodel:WeeksViewModel"
              Title="Weekly View"
              BackgroundColor="White">
 
     <Grid
-        RowDefinitions="Auto, *"
+        RowDefinitions="Auto"
         ColumnDefinitions=".75*, .25*"
         Padding="10"
         RowSpacing="10"
         ColumnSpacing="10">
 
         <CollectionView
-            Grid.ColumnSpan="2">
-            <CollectionView.ItemsSource>
-                <x:Array Type="{x:Type x:String}">
-                    <x:String>WEEK 1</x:String>
-                    <x:String>WEEK 2</x:String>
-                    <x:String>WEEK 3</x:String>
-                    <x:String>WEEK 4</x:String>
-                    <x:String>WEEK 5</x:String>
-                </x:Array>
-            </CollectionView.ItemsSource>
+            Grid.ColumnSpan="2"
+            ItemsSource="{Binding Weeks}"
+            SelectionMode="None">
             <CollectionView.ItemTemplate>
-                <DataTemplate>
+                <DataTemplate
+                    x:DataType="{x:Type x:String}">
                     <SwipeView>
                         <SwipeView.RightItems>
                             <SwipeItems>
@@ -36,6 +32,11 @@
                             Padding="0, 10">
                             <Border
                             BackgroundColor="DarkSlateGray">
+                                <Border.GestureRecognizers>
+                                    <TapGestureRecognizer
+                                        Command="{Binding Source={RelativeSource AncestorType={x:Type viewmodel:WeeksViewModel}}, Path=GoToWeekCommand}"
+                                        CommandParameter="{Binding .}"/>
+                                </Border.GestureRecognizers>
                                 <Label Text="{Binding .}"
                                    FontSize="40"
                                    BackgroundColor="MediumSeaGreen"

@@ -1,4 +1,4 @@
-﻿//to be written by Edward Keiper
+﻿//written by Edward Keiper
 
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
