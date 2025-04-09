@@ -10,11 +10,26 @@ namespace NutriWeekMAUI.DataStructures
     {
         public static List<string> PossibleNutrients = new List<string>()
         {
-             //for example
-            "Sugar",
-            "Carbs",
-            "Fat",
-            "Sodium" //etc
+            "fat",
+            "saturated-fat",
+            "trans-fat",
+            "cholesterol",
+            "carbohydrates",
+            "sugars",
+            "fiber",
+            "proteins",
+            "sodium",
+            "vitamin-a",
+            "vitamin-e",
+            "vitamin-c",
+            "potassium",
+            "calcium",
+            "phosphorous",
+            "iron",
+            "magnesium",
+            "zinc",
+            "copper",
+            "manganese"
         };
 
         public Dictionary<string, float> FoodNutrients = new Dictionary<string, float>();

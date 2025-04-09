@@ -1,5 +1,8 @@
 ﻿using NutriWeekMAUI.DataStructures;
 using Microsoft.Data.SqlClient;
+using Microsoft.Data.Sqlite;
+using System.Collections.Generic;
+
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,83 +16,101 @@ namespace NutriWeekMAUI
     {
         public static Dictionary<string, float> DefaultDVs = LoadDefaultDVs();
 
-        static SqlConnection? connection = new SqlConnection("Server=localhost;Integrated security=SSPI;database=master");
-        public static string storagePath = Environment.CurrentDirectory;
-        public static void ConnectToDatabase()
+        public static string storagePath = Environment.CurrentDirectory + "nutriWeek.db";
+        public static SqliteConnection db;
+        public static void OpenDatabase()
         {
-            SqlConnectionStringBuilder? builder = new()
+            if (!File.Exists(storagePath))
             {
-                DataSource = "tbd",
-                UserID = "username",
-                Password = "password",
-                InitialCatalog = "database"
-            };
-
-            String? connectionString = builder.ConnectionString;
-
-            try
-            {
-                connection = new SqlConnection(connectionString);
-                connection.Open();
-            }
-            catch (SqlException e) when (e.Number == /* database doesn't exist */ 1)
-            {
-                String createDatabaseString = "CREATE DATABASE MyDatabase ON PRIMARY " +
-                             "(NAME = MyDatabase_Data, " +
-                             "FILENAME = '" + storagePath + "MyDatabaseData.mdf', " +
-                             "SIZE = 2MB, MAXSIZE = 100MB, FILEGROWTH = 10%)" +
-                             "LOG ON (NAME = MyDatabase_Log, " +
-                             "FILENAME = '" + storagePath + "MyDatabaseLog.ldf', " +
-                             "SIZE = 1MB, " +
-                             "MAXSIZE = 5MB, " +
-                             "FILEGROWTH = 10%)";
-
-                SqlCommand createDatabaseCommand = new SqlCommand(createDatabaseString, connection);
-
-                if (connection == null || connection.State != System.Data.ConnectionState.Open)
+                try
                 {
-                    throw new Exception("connection failed!!");
+                    File.Create(storagePath);
+                    db = new SqliteConnection($"Filename={storagePath}");
+                    db.Open();
+                    
+                    string createFoodTableString = "CREATE TABLE Foods foodname TEXT PRIMARY KEY, manufacturer TEXT, liquid TEXT, ";
+                    for (int i = 0; i < Food.PossibleNutrients.Count(); i++)
+                    {
+                        createFoodTableString += Food.PossibleNutrients[i] + " INTEGER,";
+                    }
+                    QueryDB(createFoodTableString);
+                    QueryDB("CREATE TABLE Days daydate TEXT PRIMARY KEY, foodname TEXT, meal TEXT");
+                    QueryDB("CREATE TABLE Weeks INTEGER weekstartdate PRIMARY KEY, weekname TEXT, day0 TEXT, day1 TEXT, day2 TEXT, day3 TEXT, day4 TEXT, day5 TEXT, day6 TEXT");
                 }
-
-                connection.Open();
-                createDatabaseCommand.ExecuteNonQuery();
-                Console.WriteLine("Database is Created Successfully");
-            }
-            catch (Exception e)
-            {
-                Console.WriteLine(e.ToString());
-            }
-        }
-
-        public static SqlDataReader QueryDatabase(String query)
-        {
-            if(connection != null && connection.State == System.Data.ConnectionState.Open)
-            {
-                SqlCommand sqlCommand = new SqlCommand(query, connection);
-                return sqlCommand.ExecuteReader();
+                catch
+                {
+                    Console.WriteLine("FATAL: FAILED TO CREATE DATABASE FILE");
+                    Console.ReadLine();
+                    System.Environment.Exit(29);
+                }                
             }
             else
             {
-                Console.WriteLine("oof");
+                db = new SqliteConnection($"Filename={storagePath}");
+                db.Open();
             }
 
-            return null;
+            return;
         }
 
-        
+        public static SqliteDataReader QueryDB(String query)
+        {
+            return new SqliteCommand(query, db).ExecuteReader();
+        }
+
+        public static void CreateCustomFoodDB()
+        {
+            //product_name
+            //quantity
+            //PossibleNutrients
+            //brands
+            //WHERE countries_EN = 'United States'
+            //allergens
+            //serving_size
+            //serving_quantity
+            //nutriscore_score
+            //product_quantity
+            //popularity_tags
+
+            int i = 0;
+
+            List<string> valid = new List<string>();
+
+            using (StreamReader r = new StreamReader("C:\\Users\\SamDo\\source\\repos\\NutriWeekMAUI\\db.csv"))
+            {
+                string l;
+                while ((l = r.ReadLine()) != null)
+                {
+                    i++;
+                    if(l.Contains("United States"))
+                    {
+                        valid.Add(l);
+                    }
+                }
+            }
+
+            using (StreamWriter w = new StreamWriter("C:\\Users\\SamDo\\source\\repos\\NutriWeekMAUI\\rawfood.csv"))
+            {
+                foreach (string s in valid)
+                {
+                    w.WriteLine(s);
+                }
+            }
+        }
+
 
         public static Food LoadFood(string foodName)
         {
-            string query = "SELECT Manufacturer Liquid ";
+            string query = "SELECT manufacturer liquid ";
             for(int i = 0; i < Food.PossibleNutrients.Count(); i++)
             {
                 query += Food.PossibleNutrients[i] + " ";
             }
             query += "FROM Foods" +
-                     "WHERE Name = '" + foodName + "'";
+                     "WHERE foodname = '" + foodName + "'";
 
 
-            SqlDataReader response = QueryDatabase(query);
+            SqliteDataReader response = QueryDB(query);
 
             Food food = new Food();
 
@@ -112,7 +133,8 @@ namespace NutriWeekMAUI
 
         public static void StoreFood(Food food)
         {
-
+            SqliteCommand createTable = new SqliteCommand("CREATE TABLE IF NOT EXISTS Foods", db);
+            createTable.ExecuteReader();
         }
 
         /// <summary>
