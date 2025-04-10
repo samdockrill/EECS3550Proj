@@ -148,13 +148,20 @@ namespace NutriWeekMAUI
         /// Generates a random Day object full of random foods for testing
         /// </summary>
         /// <returns></returns>
-        public static Day GenerateTestDay()
+        public static Day GenerateTestDay(bool useRandom = false)
         {
             Day exampleDay = new Day();
 
             for(int i = 0; i < 3; i++)
             {
-                exampleDay.Foods.Add(ExampleFoods[rand.Next(0, ExampleFoods.Count)]);
+                if (useRandom)
+                {
+                    exampleDay.Foods.Add(GenerateTestFood());
+                }
+                else
+                {
+                    exampleDay.Foods.Add(ExampleFoods[rand.Next(0, ExampleFoods.Count)]);
+                }
             }
 
             return exampleDay;
