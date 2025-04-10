@@ -43,7 +43,7 @@ namespace NutriWeekMAUI
                     Console.WriteLine("FATAL: FAILED TO CREATE DATABASE FILE");
                     Console.ReadLine();
                     System.Environment.Exit(29);
-                }                
+                }
             }
             else
             {
@@ -155,6 +155,22 @@ namespace NutriWeekMAUI
         }
 
         /// <summary>
+        /// Retrieves a week object, containing a list of day objects
+        /// </summary>
+        /// <param name="month">The month the week starts on</param>
+        /// <param name="day">The day the week starts on</param>
+        /// <returns></returns>
+        public static Week LoadWeek(int month, int day)
+        {
+            return new Week();
+        }
+
+        public static void StoreWeek(Week week)
+        {
+
+        }
+
+        /// <summary>
         /// Pull the pre-generated food name tree out of storage
         /// </summary>
         /// <returns></returns>
@@ -172,30 +188,7 @@ namespace NutriWeekMAUI
 
         public static void LoadWeeks()
         {
-            StoredWeeks.Add(new Week(4, 7));
-            StoredWeeks.Add(new Week(4, 14));
-
-            Day exampleDay = new Day();
-            exampleDay.Foods.Add(Testing.ExampleFoods[0]);
-            exampleDay.Foods.Add(Testing.ExampleFoods[1]);
-            exampleDay.Foods.Add(Testing.ExampleFoods[2]);
-            StoredWeeks[0].Days.Add(exampleDay);
-
-            Day exampleDay2 = new Day();
-            exampleDay2.Foods.Add(Testing.ExampleFoods[3]);
-            exampleDay2.Foods.Add(Testing.ExampleFoods[4]);
-            exampleDay2.Foods.Add(Testing.ExampleFoods[5]);
-            StoredWeeks[0].Days.Add(exampleDay2);
-
-            for(int i = 2; i < 7; i++)
-            {
-                StoredWeeks[0].Days.Add(new Day());
-            }
-
-            for (int i = 0; i < 7; i++)
-            {
-                StoredWeeks[1].Days.Add(new Day());
-            }
+            Testing.LoadExampleWeeks();
         }
 
         public static Dictionary<string, float> LoadDefaultDVs()
