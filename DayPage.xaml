@@ -47,7 +47,7 @@
                                         CommandParameter="{Binding .}"/>
                                 </Border.GestureRecognizers>
                                 <Label Text="{Binding .}"
-                                   FontSize="40"
+                                   FontSize="30"
                                    BackgroundColor="MediumSeaGreen"
                                    TextColor="DarkSlateGray"/>
                             </Border>

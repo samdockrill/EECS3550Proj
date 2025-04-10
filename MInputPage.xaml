@@ -4,62 +4,137 @@
              x:Class="NutriWeekMAUI.MInputPage"
              xmlns:viewmodel="clr-namespace:NutriWeekMAUI.ViewModels"
              x:DataType="viewmodel:MInputViewModel"
-             Title="Current Week"
+             Title="Manual Input"
              BackgroundColor="White">
 
+    <ScrollView>
     <Grid
-    RowDefinitions="Auto, *, Auto"
+    RowDefinitions="*, *, *, *, *, *, *, *, *, *, *, *, *, *, *, *, *, *, *, *, *, Auto, Auto"
     ColumnDefinitions=".75*, .25*"
     Padding="10"
     RowSpacing="10"
     ColumnSpacing="10">
 
-        <Label
-            Text="{Binding Text}"
+        <Entry
             Grid.ColumnSpan="2"
-            FontSize="25"
-            TextColor="DarkSlateGray"
-            VerticalOptions="Center"
-            HorizontalOptions="Center"/>
+            Placeholder="Food Name" />
 
-        <CollectionView
+        <Entry
             Grid.Row="1"
             Grid.ColumnSpan="2"
-            ItemsSource="{Binding Days}"
-            SelectionMode="None">
-            <CollectionView.ItemTemplate>
-                <DataTemplate
-                    x:DataType="{x:Type x:String}">
-                    <SwipeView>
-                        <SwipeView.RightItems>
-                            <SwipeItems>
-                                <SwipeItem Text="Clear"
-                                   BackgroundColor="Firebrick"/>
-                            </SwipeItems>
-                        </SwipeView.RightItems>
-                        <Grid
-                            Padding="0, 10">
-                            <Border
-                            BackgroundColor="DarkSlateGray">
-                                <Border.GestureRecognizers>
-                                    <TapGestureRecognizer
-                                        Command="{Binding Source={RelativeSource AncestorType={x:Type viewmodel:MInputViewModel}}, Path=GoToDayCommand}"
-                                        CommandParameter="{Binding .}"/>
-                                </Border.GestureRecognizers>
-                                <Label Text="{Binding .}"
-                                   FontSize="40"
-                                   BackgroundColor="MediumSeaGreen"
-                                   TextColor="DarkSlateGray"/>
-                            </Border>
-                        </Grid>
-                    </SwipeView>
-                </DataTemplate>
-            </CollectionView.ItemTemplate>
-        </CollectionView>
+            Placeholder="Fat Value" />
+
+        <Entry
+            Grid.Row="2"
+            Grid.ColumnSpan="2"
+            Placeholder="Sat-Fat Value" />
+
+            <Entry
+    Grid.Row="3"
+    Grid.ColumnSpan="2"
+    Placeholder="Trans-Fat Value" />
+
+            <Entry
+    Grid.Row="4"
+    Grid.ColumnSpan="2"
+    Placeholder="Cholestrerol Value" />
+
+            <Entry
+    Grid.Row="5"
+    Grid.ColumnSpan="2"
+    Placeholder="Carb Value" />
+
+            <Entry
+    Grid.Row="6"
+    Grid.ColumnSpan="2"
+    Placeholder="Sugar Value" />
+
+            <Entry
+    Grid.Row="7"
+    Grid.ColumnSpan="2"
+    Placeholder="Fiber Value" />
+
+            <Entry
+    Grid.Row="8"
+    Grid.ColumnSpan="2"
+    Placeholder="Protein Value" />
+
+            <Entry
+    Grid.Row="9"
+    Grid.ColumnSpan="2"
+    Placeholder="Sodium Value" />
+
+            <Entry
+    Grid.Row="10"
+    Grid.ColumnSpan="2"
+    Placeholder="Vitamin-A Value" />
+
+            <Entry
+    Grid.Row="11"
+    Grid.ColumnSpan="2"
+    Placeholder="Vitamin-E Value" />
+
+            <Entry
+Grid.Row="12"
+Grid.ColumnSpan="2"
+Placeholder="Vitamin-C Value" />
+
+            <Entry
+Grid.Row="13"
+Grid.ColumnSpan="2"
+Placeholder="Potassium Value" />
+
+            <Entry
+Grid.Row="14"
+Grid.ColumnSpan="2"
+Placeholder="Calcium Value" />
+
+            <Entry
+Grid.Row="15"
+Grid.ColumnSpan="2"
+Placeholder="Phosporous Value" />
+
+            <Entry
+Grid.Row="16"
+Grid.ColumnSpan="2"
+Placeholder="Iron Value" />
+
+            <Entry
+Grid.Row="17"
+Grid.ColumnSpan="2"
+Placeholder="Magnesium Value" />
+
+            <Entry
+Grid.Row="18"
+Grid.ColumnSpan="2"
+Placeholder="Zinc Value" />
+
+            <Entry
+Grid.Row="19"
+Grid.ColumnSpan="2"
+Placeholder="Copper Value" />
+
+            <Entry
+Grid.Row="20"
+Grid.ColumnSpan="2"
+Placeholder="Manganese Value" />
+
+            <Button
+            x:Name="EnterBtn"
+            Grid.Row="21"
+            Grid.ColumnSpan="2"
+            BackgroundColor="MediumSeaGreen"
+            Text="Enter Data"
+            TextColor="DarkSlateGray"
+            BorderColor="DarkSlateGray"
+            BorderWidth="2"
+            SemanticProperties.Hint="Navigates to the WeeksPage content page"
+            HorizontalOptions="Center"
+            VerticalOptions="Center"/>
 
         <Button
             x:Name="BackBtn"
-            Grid.Row="2"
+            Grid.Row="22"
             Grid.ColumnSpan="2"
             BackgroundColor="MediumSeaGreen"
             Text="Go Back"
@@ -72,4 +147,5 @@
             Command="{Binding BackToWeeksCommand}"/>
 
     </Grid>
+    </ScrollView>
 </ContentPage>
