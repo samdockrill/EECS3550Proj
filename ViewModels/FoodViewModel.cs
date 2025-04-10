@@ -19,10 +19,11 @@ namespace NutriWeekMAUI.ViewModels
 
             if(MauiProgram.CurrentFood.Name == "New Food")
             {
-                Days.Add("TapNType (COMING SOON!)");
-                Days.Add("Manual Input (COMING SOON!)");
-                Days.Add("Scan Barcode (COMING SOON!)");
-                Days.Add("Recommend options (COMING SOON!)");
+                Days.Add("Custom Foods: Coming Soon!");
+                Days.Add("TapNType");
+                Days.Add("Scan Barcode");
+                Days.Add("Recommended options");
+                Days.Add("Manual Input");
             }
             else
             {
@@ -49,10 +50,10 @@ namespace NutriWeekMAUI.ViewModels
         [RelayCommand]
         async Task GoToDay(string s)
         {
+            return;
             //DO NOTHING if the user clicks on the Nutrition Data box
             if (s.Contains("Nutrition Data"))
             {
-                return;
             }
 
             if (s.Contains("TapNType"))

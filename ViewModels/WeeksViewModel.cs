@@ -19,7 +19,8 @@ namespace NutriWeekMAUI.ViewModels
                 //Can't be asked to do date and time storage+comparision right now, it's irrelevant for the demo anyway
                 //if(eachWeek.StartDate + 6 > currentdate)
                 {
-                    Weeks.Add(eachWeek.StartDate);
+                    string s = eachWeek.StartDate;
+                    Weeks.Add(s);
                 }
             }
 

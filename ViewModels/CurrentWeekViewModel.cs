@@ -14,16 +14,58 @@ namespace NutriWeekMAUI.ViewModels
         /// Constructor
         public CurrentWeekViewModel()
         {
-            Days = new ObservableCollection<string>
+
+            Days = new ObservableCollection<string>();            
+                
+            for(int i = 0; i < 7; i++)
             {
-                "Monday",
-                "Tuesday",
-                "Wednesday",
-                "Thursday",
-                "Friday",
-                "Saturday",
-                "Sunday"
-            };
+                string s = DayFromIndex(i);
+
+                for (int j = 0; j < DataStorage.StoredWeeks[MauiProgram.CurrentWeekViewIndex].Days[i].Foods.Count; j++)
+                {
+                    if (j == 0)
+                    {
+                        s += ":";
+                    }
+                    s += "\n -" + DataStorage.StoredWeeks[MauiProgram.CurrentWeekViewIndex].Days[i].Foods[j].Name;
+                }
+
+                Days.Add(s);
+            }
+        }
+
+        string DayFromIndex(int i)
+        {
+            if(i == 0)
+            {
+                return "Monday";
+            }
+            if (i == 1)
+            {
+                return "Tuesday";
+            }
+            if (i == 2)
+            {
+                return "Wednesday";
+            }
+            if (i == 3)
+            {
+                return "Thursday";
+            }
+            if (i == 4)
+            {
+                return "Friday";
+            }
+            if (i == 5)
+            {
+                return "Saturday";
+            }
+            if (i == 6)
+            {
+                return "Monday";
+            }
+
+            return "Sunday";
         }
 
         /// Collection of days
@@ -38,34 +80,36 @@ namespace NutriWeekMAUI.ViewModels
         [RelayCommand]
         async Task GoToDay(string s)
         {
-            if(s == "Monday")
+            if(s.Contains("Monday"))
             {
                 MauiProgram.CurrentDayViewIndex = 0;
             }
-            if (s == "Tuesday")
+            if (s.Contains("Tuesday"))
             {
                 MauiProgram.CurrentDayViewIndex = 1;
             }
-            if (s == "Wednesday")
+            if (s.Contains("Wednesday"))
             {
                 MauiProgram.CurrentDayViewIndex = 2;
             }
-            if (s == "Thursday")
+            if (s.Contains("Thursday"))
             {
                 MauiProgram.CurrentDayViewIndex = 3;
             }
-            if (s == "Friday")
+            if (s.Contains("Friday"))
             {
                 MauiProgram.CurrentDayViewIndex = 4;
             }
-            if (s == "Saturday")
+            if (s.Contains("Saturday"))
             {
                 MauiProgram.CurrentDayViewIndex = 5;
             }
-            if (s == "Sunday")
+            if (s.Contains("Sunday"))
             {
                 MauiProgram.CurrentDayViewIndex = 6;
             }
+
+            s = DayFromIndex(MauiProgram.CurrentDayViewIndex);
 
             await Shell.Current.GoToAsync($"{nameof(DayPage)}?Text={s}");
         }
