@@ -68,6 +68,12 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <Compile Update="MInputPage.xaml.cs">
+	    <DependentUpon>MInputPage.xaml</DependentUpon>
+	  </Compile>
+	  <Compile Update="TNTPage.xaml.cs">
+	    <DependentUpon>TNTPage.xaml</DependentUpon>
+	  </Compile>
 	  <Compile Update="Views\DayView.xaml.cs">
 	    <DependentUpon>DayView.xaml</DependentUpon>
 	  </Compile>
@@ -87,6 +93,12 @@
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="DisclaimerPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="MInputPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="TNTPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="FoodPage.xaml">

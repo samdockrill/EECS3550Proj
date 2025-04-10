@@ -17,25 +17,24 @@ namespace NutriWeekMAUI.ViewModels
         {
             Days = new ObservableCollection<string>();
 
-            foreach (Food f in DataStorage.StoredWeeks[MauiProgram.CurrentWeekViewIndex].Days[MauiProgram.CurrentDayViewIndex].Foods)
+            if(MauiProgram.CurrentFood.Name == "New Food")
             {
-                Days.Add(f.Name);
+                Days.Add("TapNType (COMING SOON!)");
+                Days.Add("Manual Input (COMING SOON!)");
+                Days.Add("Scan Barcode (COMING SOON!)");
+                Days.Add("Recommend options (COMING SOON!)");
             }
-
-            if (Days.Count < 3)
+            else
             {
-                Days.Add(" + Add a New Food");
+                string nutrition = "Food Nutrition Data: \n";
+
+                foreach (KeyValuePair<string, float> k in MauiProgram.CurrentFood.FoodNutrients)
+                {
+                    nutrition += k.Key + ": " + k.Value + "\n";
+                }
+
+                Days.Add(nutrition);
             }
-
-            string nutrition = "Full Daily Nutrition Data: \n" +
-                "Placeholder Demo: Actual Graph Coming Soon!\n";
-
-            foreach (KeyValuePair<string, float> k in DataStorage.StoredWeeks[MauiProgram.CurrentWeekViewIndex].Days[MauiProgram.CurrentDayViewIndex].DailyValues)
-            {
-                nutrition += k.Key + ": " + k.Value + "\n";
-            }
-
-            Days.Add(nutrition);
         }
 
         /// Collection of days
@@ -50,7 +49,20 @@ namespace NutriWeekMAUI.ViewModels
         [RelayCommand]
         async Task GoToDay(string s)
         {
+            //DO NOTHING if the user clicks on the Nutrition Data box
+            if (s.Contains("Nutrition Data"))
+            {
+                return;
+            }
 
+            if (s.Contains("TapNType"))
+            {
+                Days = new ObservableCollection<string>();
+            }
+            else if (s.Contains("Manual Input"))
+            {
+                Days = new ObservableCollection<string>();
+            }
         }
 
         /// This is used to go back to the weeks page

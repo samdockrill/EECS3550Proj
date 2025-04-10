@@ -60,9 +60,13 @@ namespace NutriWeekMAUI.ViewModels
 
                 Week newWeek = new Week(month, day);
                 s = newWeek.StartDate;
+                for (int i = 0; i < 7; i++)
+                {
+                    newWeek.Days.Add(new Day());
+                }
                 DataStorage.StoredWeeks.Add(newWeek);
                 Weeks.Remove(" + Create New Week");
-                Weeks.Add(newWeek.StartDate);
+                Weeks.Add(s);
                 Weeks.Add(" + Create New Week");
                 return;
             }

@@ -4,7 +4,7 @@
              x:Class="NutriWeekMAUI.FoodPage"
              xmlns:viewmodel="clr-namespace:NutriWeekMAUI.ViewModels"
              x:DataType="viewmodel:FoodViewModel"
-             Title="Current Week"
+             Title="Food Data"
              BackgroundColor="White">
 
     <Grid
