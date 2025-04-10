@@ -13,12 +13,23 @@ namespace NutriWeekMAUI.DataStructures
         /// Used to store/load it
         /// </summary>
         /// 
-        public Week(string date)
+        public Week(int startmonth, int startday)
         {
-            StartDate = date;
+            month = startmonth;
+            day = startday;
         }
 
-        public string StartDate = "";
+        public int month;
+        public int day;
+
+        public string StartDate
+        {
+            get
+            {
+                return month.ToString() + "/" + day.ToString();
+            }
+        }
+
         public string Name = "";
 
         public List<Day> Days = new List<Day>();

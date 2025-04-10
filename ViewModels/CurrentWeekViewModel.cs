@@ -16,7 +16,7 @@ namespace NutriWeekMAUI.ViewModels
         {
             Days = new ObservableCollection<string>
             {
-                "Monday\nTesttsts",
+                "Monday",
                 "Tuesday",
                 "Wednesday",
                 "Thursday",
@@ -74,7 +74,7 @@ namespace NutriWeekMAUI.ViewModels
         [RelayCommand]
         async Task BackToWeeks()
         {
-            await Shell.Current.GoToAsync("..");
+            await Shell.Current.GoToAsync(nameof(WeeksPage));
         }
     }
 }

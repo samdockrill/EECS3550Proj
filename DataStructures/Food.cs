@@ -40,7 +40,7 @@ namespace NutriWeekMAUI.DataStructures
 
         public Food(string foodName)
         {
-
+            Name = foodName;
         }
     }
 }

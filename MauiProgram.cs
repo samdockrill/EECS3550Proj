@@ -1,4 +1,5 @@
 ﻿using Microsoft.Extensions.Logging;
+using NutriWeekMAUI.DataStructures;
 using NutriWeekMAUI.ViewModels;
 
 namespace NutriWeekMAUI
@@ -7,6 +8,8 @@ namespace NutriWeekMAUI
     {
         public static int CurrentWeekViewIndex = 0;
         public static int CurrentDayViewIndex = 0;
+        public static Food CurrentFood = new Food("the intractable void (you should not be seeing this)");
+
         public static MauiApp CreateMauiApp()
         {
             DataStorage.LoadWeeks();

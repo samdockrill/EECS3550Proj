@@ -15,12 +15,18 @@ namespace NutriWeekMAUI.DataStructures
         string Date = "";
 
         public List<Food> Foods = new List<Food>();
-        Dictionary<string, float> DailyValues = new Dictionary<string, float>();
+        public Dictionary<string, float> DailyValues
+        {
+            get
+            {
+                return SumDailyNutritionValues();
+            }
+        }
 
-        void SumDailyNutritionValues()
+        Dictionary<string, float> SumDailyNutritionValues()
         {
             //Clear the existing DailyValues dictionary
-            DailyValues = new Dictionary<string, float>();
+            Dictionary<string, float>  DVs = new Dictionary<string, float>();
 
             //For each food being eaten today...
             foreach (Food food in Foods)
@@ -29,18 +35,20 @@ namespace NutriWeekMAUI.DataStructures
                 foreach(KeyValuePair<string, float> substance in food.FoodNutrients)
                 {
                     //Check if the DailyValues dictionary already has an entry for that substance
-                    if(DailyValues.Keys.Contains(substance.Key))
+                    if(DVs.Keys.Contains(substance.Key))
                     {
                         //If so, add this food's amount to the existing total
-                        DailyValues[substance.Key] += substance.Value;
+                        DVs[substance.Key] += substance.Value;
                     }
                     else
                     {
                         //If not, create an entry for it and set its value to the value of this food
-                        DailyValues.Add(substance.Key, substance.Value);
+                        DVs.Add(substance.Key, substance.Value);
                     }
                 }
             }
+
+            return DVs;
         }
     }
 }

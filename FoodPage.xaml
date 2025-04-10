@@ -2,11 +2,74 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="NutriWeekMAUI.FoodPage"
-             Title="FoodPage">
-    <VerticalStackLayout>
-        <Label 
-            Text="Welcome to .NET MAUI!"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
-    </VerticalStackLayout>
+             xmlns:viewmodel="clr-namespace:NutriWeekMAUI.ViewModels"
+             x:DataType="viewmodel:FoodViewModel"
+             Title="Current Week"
+             BackgroundColor="White">
+
+    <Grid
+    RowDefinitions="Auto, Auto, *"
+    ColumnDefinitions=".75*, .25*"
+    Padding="10"
+    RowSpacing="10"
+    ColumnSpacing="10">
+
+        <Label
+            Text="{Binding Text}"
+            Grid.ColumnSpan="2"
+            FontSize="25"
+            TextColor="DarkSlateGray"
+            VerticalOptions="Center"
+            HorizontalOptions="Center"/>
+
+        <CollectionView
+            Grid.Row="1"
+            Grid.ColumnSpan="2"
+            ItemsSource="{Binding Days}"
+            SelectionMode="None">
+            <CollectionView.ItemTemplate>
+                <DataTemplate
+                    x:DataType="{x:Type x:String}">
+                    <SwipeView>
+                        <SwipeView.RightItems>
+                            <SwipeItems>
+                                <SwipeItem Text="Clear"
+                                   BackgroundColor="Firebrick"/>
+                            </SwipeItems>
+                        </SwipeView.RightItems>
+                        <Grid
+                            Padding="0, 10">
+                            <Border
+                            BackgroundColor="DarkSlateGray">
+                                <Border.GestureRecognizers>
+                                    <TapGestureRecognizer
+                                        Command="{Binding Source={RelativeSource AncestorType={x:Type viewmodel:FoodViewModel}}, Path=GoToDayCommand}"
+                                        CommandParameter="{Binding .}"/>
+                                </Border.GestureRecognizers>
+                                <Label Text="{Binding .}"
+                                   FontSize="40"
+                                   BackgroundColor="MediumSeaGreen"
+                                   TextColor="DarkSlateGray"/>
+                            </Border>
+                        </Grid>
+                    </SwipeView>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+
+        <Button
+            x:Name="BackBtn"
+            Grid.Row="2"
+            Grid.ColumnSpan="2"
+            BackgroundColor="MediumSeaGreen"
+            Text="Go Back"
+            TextColor="DarkSlateGray"
+            BorderColor="DarkSlateGray"
+            BorderWidth="2"
+            SemanticProperties.Hint="Navigates to the WeeksPage content page"
+            HorizontalOptions="Center"
+            VerticalOptions="Center"
+            Command="{Binding BackToWeeksCommand}"/>
+
+    </Grid>
 </ContentPage>

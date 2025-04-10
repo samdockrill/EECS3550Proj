@@ -44,7 +44,27 @@ namespace NutriWeekMAUI.ViewModels
 
             if(s == " + Create New Week")
             {
-                DataStorage.StoredWeeks.Add(new Week("4/21"));
+                int day = DataStorage.StoredWeeks[DataStorage.StoredWeeks.Count - 1].day;
+                int month = DataStorage.StoredWeeks[DataStorage.StoredWeeks.Count - 1].month;
+
+                day += 7;
+                if(day > 30)
+                {
+                    day -= 30;
+                    month++;
+                    if(month > 12)
+                    {
+                        month = 0;
+                    }
+                }
+
+                Week newWeek = new Week(month, day);
+                s = newWeek.StartDate;
+                DataStorage.StoredWeeks.Add(newWeek);
+                Weeks.Remove(" + Create New Week");
+                Weeks.Add(newWeek.StartDate);
+                Weeks.Add(" + Create New Week");
+                return;
             }
 
             await Shell.Current.GoToAsync($"{nameof(CurrentWeekPage)}?Text={s}");

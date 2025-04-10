@@ -168,20 +168,74 @@ namespace NutriWeekMAUI
 
         }
 
-        public static List<Food> ExampleFoods = new List<Food>()
-        {
-            new Food("Pancake"),
-            new Food("Pizza"),
-            new Food("Hamburger"),
-            new Food("Waffles"),
-            new Food("Burrito"),
-            new Food("Steak"),
-        };
+        public static List<Food> ExampleFoods {
+            get
+            {
+                List<Food> val = new List<Food>(){
+                    new Food("Pancake"),
+                    new Food("Pizza"),
+                    new Food("Hamburger"),
+                    new Food("Waffle"),
+                    new Food("Burrito"),
+                    new Food("Steak"),
+                };
+
+                val[0].FoodNutrients.Add("fat", 1.5f);
+                val[0].FoodNutrients.Add("sodium", 530f);
+                val[0].FoodNutrients.Add("carbohydrates", 37f);
+                val[0].FoodNutrients.Add("proteins", 4f);
+                val[0].FoodNutrients.Add("sugars", 6f);
+                val[0].FoodNutrients.Add("fiber", 1f);
+
+                val[1].FoodNutrients.Add("fat", 16f);
+                val[1].FoodNutrients.Add("cholesterol", 55f);
+                val[1].FoodNutrients.Add("sodium", 650f);
+                val[1].FoodNutrients.Add("carbohydrates", 49f);
+                val[1].FoodNutrients.Add("fiber", 3f);
+                val[1].FoodNutrients.Add("sugars", 4f);
+                val[1].FoodNutrients.Add("proteins", 13f);
+
+                val[2].FoodNutrients.Add("fat", 27f);
+                val[2].FoodNutrients.Add("cholesterol", 87f);
+                val[2].FoodNutrients.Add("sodium", 824f);
+                val[2].FoodNutrients.Add("carbohydrates", 40f);
+                val[2].FoodNutrients.Add("fiber", 0f);
+                val[2].FoodNutrients.Add("sugars", 0f);
+                val[2].FoodNutrients.Add("proteins", 26f);
+
+                val[3].FoodNutrients.Add("fat", 2.5f);
+                val[3].FoodNutrients.Add("cholesterol", 35f);
+                val[3].FoodNutrients.Add("sodium", 450f);
+                val[3].FoodNutrients.Add("carbohydrates", 87f);
+                val[3].FoodNutrients.Add("fiber", 2f);
+                val[3].FoodNutrients.Add("sugars", 10f);
+                val[3].FoodNutrients.Add("proteins", 8f);
+
+                val[4].FoodNutrients.Add("fat", 28f);
+                val[4].FoodNutrients.Add("cholesterol", 100f);
+                val[4].FoodNutrients.Add("sodium", 980f);
+                val[4].FoodNutrients.Add("carbohydrates", 33f);
+                val[4].FoodNutrients.Add("fiber", 20f);
+                val[4].FoodNutrients.Add("sugars", 4f);
+                val[4].FoodNutrients.Add("proteins", 37f);
+
+                val[5].FoodNutrients.Add("fat", 38f);
+                val[5].FoodNutrients.Add("cholesterol", 195f);
+                val[5].FoodNutrients.Add("sodium", 230f);
+                val[5].FoodNutrients.Add("carbohydrates", 0f);
+                val[5].FoodNutrients.Add("fiber", 0f);
+                val[5].FoodNutrients.Add("sugars", 0f);
+                val[5].FoodNutrients.Add("proteins", 56f);
+
+
+                return val;
+            }            
+        }
 
         public static void LoadWeeks()
         {
-            StoredWeeks.Add(new Week("4/7"));
-            StoredWeeks.Add(new Week("4/14"));
+            StoredWeeks.Add(new Week(4, 7));
+            StoredWeeks.Add(new Week(4, 14));
 
             Day exampleDay = new Day();
             exampleDay.Foods.Add(ExampleFoods[0]);
@@ -194,6 +248,16 @@ namespace NutriWeekMAUI
             exampleDay2.Foods.Add(ExampleFoods[4]);
             exampleDay2.Foods.Add(ExampleFoods[5]);
             StoredWeeks[0].Days.Add(exampleDay2);
+
+            for(int i = 2; i < 7; i++)
+            {
+                StoredWeeks[0].Days.Add(new Day());
+            }
+
+            for (int i = 0; i < 7; i++)
+            {
+                StoredWeeks[1].Days.Add(new Day());
+            }
         }
 
         public static Dictionary<string, float> LoadDefaultDVs()
