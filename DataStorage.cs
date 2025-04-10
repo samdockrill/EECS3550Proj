@@ -162,7 +162,7 @@ namespace NutriWeekMAUI
         /// <returns></returns>
         public static Week LoadWeek(int month, int day)
         {
-            return new Week();
+            return new Week(month, day);
         }
 
         public static void StoreWeek(Week week)

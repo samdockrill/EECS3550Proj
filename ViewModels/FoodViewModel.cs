@@ -50,7 +50,7 @@ namespace NutriWeekMAUI.ViewModels
         [RelayCommand]
         async Task GoToDay(string s)
         {
-            return;
+            //return;
             //DO NOTHING if the user clicks on the Nutrition Data box
             if (s.Contains("Nutrition Data"))
             {
@@ -58,11 +58,11 @@ namespace NutriWeekMAUI.ViewModels
 
             if (s.Contains("TapNType"))
             {
-                Days = new ObservableCollection<string>();
+                await Shell.Current.GoToAsync(nameof(TNTPage));
             }
             else if (s.Contains("Manual Input"))
             {
-                Days = new ObservableCollection<string>();
+                await Shell.Current.GoToAsync(nameof(MInputPage));
             }
         }
 
