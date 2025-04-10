@@ -100,6 +100,8 @@ namespace NutriWeekMAUI
                     }
                 }
             }
+
+            /*
             DataStorage.StoredWeeks.Add(new Week(4, 14));
 
             Day exampleDay = new Day();
@@ -122,7 +124,7 @@ namespace NutriWeekMAUI
             for (int i = 0; i < 7; i++)
             {
                 DataStorage.StoredWeeks[1].Days.Add(new Day());
-            }
+            }*/
         }
 
         /// <summary>
