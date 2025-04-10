@@ -8,7 +8,7 @@
              BackgroundColor="White">
 
     <Grid
-    RowDefinitions="Auto, Auto, *"
+    RowDefinitions="Auto, *, Auto"
     ColumnDefinitions=".75*, .25*"
     Padding="10"
     RowSpacing="10"

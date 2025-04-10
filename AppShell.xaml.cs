@@ -16,6 +16,8 @@
             Routing.RegisterRoute(nameof(ManualInputPage), typeof(ManualInputPage));
             Routing.RegisterRoute(nameof(FoodPage), typeof(FoodPage));
             Routing.RegisterRoute(nameof(RecommendedPage), typeof(RecommendedPage));
+            Routing.RegisterRoute(nameof(TNTPage), typeof(TNTPage));
+            Routing.RegisterRoute(nameof(MInputPage), typeof(MInputPage));  
         }
     }
 }
