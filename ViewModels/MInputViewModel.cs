@@ -21,8 +21,7 @@ namespace NutriWeekMAUI.ViewModels
             {
                 Days.Add("TapNType");
                 Days.Add("Manual Input");
-                Days.Add("Scan Barcode (COMING SOON!)");
-                Days.Add("Recommend options (COMING SOON!)");
+                Days.Add("Recommend options");
             }
             else
             {
