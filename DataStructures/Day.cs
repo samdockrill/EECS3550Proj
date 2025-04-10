@@ -14,7 +14,7 @@ namespace NutriWeekMAUI.DataStructures
         /// </summary>
         string Date = "";
 
-        List<Food> Meals = new List<Food>();
+        public List<Food> Foods = new List<Food>();
         Dictionary<string, float> DailyValues = new Dictionary<string, float>();
 
         void SumDailyNutritionValues()
@@ -23,7 +23,7 @@ namespace NutriWeekMAUI.DataStructures
             DailyValues = new Dictionary<string, float>();
 
             //For each food being eaten today...
-            foreach (Food food in Meals)
+            foreach (Food food in Foods)
             {
                 //Go through each substance in it, one by one
                 foreach(KeyValuePair<string, float> substance in food.FoodNutrients)

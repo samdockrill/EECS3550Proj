@@ -42,7 +42,6 @@ namespace NutriWeekMAUI.InputSystems
                         Cur = Cur.Middle;
                     }
                 }
-
             }
             else
             {

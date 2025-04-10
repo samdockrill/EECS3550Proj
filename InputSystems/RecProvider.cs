@@ -14,7 +14,7 @@ namespace NutriWeekMAUI.InputSystems
         /// </summary>
         Food GenerateRecomendation()
         {
-            return new Food();
+            return new Food("");
         }
     }
 }

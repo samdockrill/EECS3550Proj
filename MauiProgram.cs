@@ -5,8 +5,11 @@ namespace NutriWeekMAUI
 {
     public static class MauiProgram
     {
+        public static int CurrentWeekViewIndex = 0;
+        public static int CurrentDayViewIndex = 0;
         public static MauiApp CreateMauiApp()
         {
+            DataStorage.LoadWeeks();
             var builder = MauiApp.CreateBuilder();
             builder
                 .UseMauiApp<App>()

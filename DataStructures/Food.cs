@@ -38,7 +38,7 @@ namespace NutriWeekMAUI.DataStructures
         public Unit Units = new Unit();
 
 
-        public Food()
+        public Food(string foodName)
         {
 
         }

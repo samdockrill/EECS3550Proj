@@ -16,7 +16,7 @@ namespace NutriWeekMAUI.ViewModels
         {
             Days = new ObservableCollection<string>
             {
-                "Monday",
+                "Monday\nTesttsts",
                 "Tuesday",
                 "Wednesday",
                 "Thursday",
@@ -38,6 +38,35 @@ namespace NutriWeekMAUI.ViewModels
         [RelayCommand]
         async Task GoToDay(string s)
         {
+            if(s == "Monday")
+            {
+                MauiProgram.CurrentDayViewIndex = 0;
+            }
+            if (s == "Tuesday")
+            {
+                MauiProgram.CurrentDayViewIndex = 1;
+            }
+            if (s == "Wednesday")
+            {
+                MauiProgram.CurrentDayViewIndex = 2;
+            }
+            if (s == "Thursday")
+            {
+                MauiProgram.CurrentDayViewIndex = 3;
+            }
+            if (s == "Friday")
+            {
+                MauiProgram.CurrentDayViewIndex = 4;
+            }
+            if (s == "Saturday")
+            {
+                MauiProgram.CurrentDayViewIndex = 5;
+            }
+            if (s == "Sunday")
+            {
+                MauiProgram.CurrentDayViewIndex = 6;
+            }
+
             await Shell.Current.GoToAsync($"{nameof(DayPage)}?Text={s}");
         }
 

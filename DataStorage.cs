@@ -15,6 +15,7 @@ namespace NutriWeekMAUI
     public static class DataStorage
     {
         public static Dictionary<string, float> DefaultDVs = LoadDefaultDVs();
+        public static List<Week> StoredWeeks = new List<Week>();
 
         public static string storagePath = Environment.CurrentDirectory + "nutriWeek.db";
         public static SqliteConnection db;
@@ -48,6 +49,8 @@ namespace NutriWeekMAUI
             {
                 db = new SqliteConnection($"Filename={storagePath}");
                 db.Open();
+
+                LoadWeeks();
             }
 
             return;
@@ -112,7 +115,7 @@ namespace NutriWeekMAUI
 
             SqliteDataReader response = QueryDB(query);
 
-            Food food = new Food();
+            Food food = new Food("");
 
             food.Manufacturuer = response.GetString(1);
             
@@ -165,6 +168,34 @@ namespace NutriWeekMAUI
 
         }
 
+        public static List<Food> ExampleFoods = new List<Food>()
+        {
+            new Food("Pancake"),
+            new Food("Pizza"),
+            new Food("Hamburger"),
+            new Food("Waffles"),
+            new Food("Burrito"),
+            new Food("Steak"),
+        };
+
+        public static void LoadWeeks()
+        {
+            StoredWeeks.Add(new Week("4/7"));
+            StoredWeeks.Add(new Week("4/14"));
+
+            Day exampleDay = new Day();
+            exampleDay.Foods.Add(ExampleFoods[0]);
+            exampleDay.Foods.Add(ExampleFoods[1]);
+            exampleDay.Foods.Add(ExampleFoods[2]);
+            StoredWeeks[0].Days.Add(exampleDay);
+
+            Day exampleDay2 = new Day();
+            exampleDay2.Foods.Add(ExampleFoods[3]);
+            exampleDay2.Foods.Add(ExampleFoods[4]);
+            exampleDay2.Foods.Add(ExampleFoods[5]);
+            StoredWeeks[0].Days.Add(exampleDay2);
+        }
+
         public static Dictionary<string, float> LoadDefaultDVs()
         {
             return new Dictionary<string, float>();
@@ -172,7 +203,7 @@ namespace NutriWeekMAUI
 
         public static Food NameLookup(string Name)
         {
-            return new Food();
+            return new Food("");
         }
     }
 }
