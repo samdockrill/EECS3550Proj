@@ -9,6 +9,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Data.Common;
+using NutriWeek.DataStructures;
+using NutriWeekMAUI.InputSystems;
+using static Android.Renderscripts.ScriptGroup;
+using System.Runtime.ConstrainedExecution;
 
 namespace NutriWeekMAUI
 {
@@ -206,6 +210,29 @@ namespace NutriWeekMAUI
             }
 
             return s;
+        }
+
+        public static bool GenerateTestTapNType()
+        {
+            Random num = new Random();
+            bool Pass = true;
+
+            for(int i = 100; i < 100; i++)
+            {
+                TreeNode CurrentFood = new TreeNode(GenerateTestString(num.Next(1, 33)).ToLower());
+                NameTree.Insert(CurrentFood);
+            }
+
+            string UserInput = GenerateTestString(num.Next(1, 33)); // Ask for user input.
+            TapnType.GetAutoCompleteList(UserInput);
+
+            for (int i = 0; i < TapnType.GetAutoCompleteList(UserInput).Count; i++) // Goes through the TapnType list.
+            {
+
+                if (TapnType.GetAutoCompleteList(UserInput)[i].Contains(UserInput)) Pass = false;
+            }
+
+            return Pass;
         }
 
 
