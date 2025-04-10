@@ -147,6 +147,7 @@ namespace NutriWeekMAUI
         /// <summary>
         /// Generates a random Day object full of random foods for testing
         /// </summary>
+        /// <param name="useRandom">Whether it should generate a truly random day with a random name and values</param>
         /// <returns></returns>
         public static Day GenerateTestDay(bool useRandom = false)
         {
@@ -203,6 +204,104 @@ namespace NutriWeekMAUI
             }
 
             return s;
+        }
+
+
+        public static void TestDatabase()
+        {
+            for(int i = 0; i < 10; i++)
+            {
+                Food test = GenerateTestFood();
+                DataStorage.StoreFood(test);
+                Food loaded = DataStorage.LoadFood(test.Name);
+                if(!compareFoods(test, loaded))
+                {
+                    Console.WriteLine("ERROR: STORED FOOD DOES NOT MATCH LOADED FOOD!");
+                }
+            }
+        }
+
+        /// <summary>
+        /// Compares two Food objects. Returns true if they are identical, and false otherwise
+        /// </summary>
+        /// <param name="test"></param>
+        /// <param name="comparison"></param>
+        /// <returns></returns>
+        public static bool compareFoods(Food test, Food comparison)
+        {
+            if(comparison == null)
+            {
+                return false;
+            }
+            if(comparison.Name != test.Name)
+            {
+                return false;
+            }
+
+            foreach(KeyValuePair<string, float> nutrient in test.FoodNutrients)
+            {
+                if(!comparison.FoodNutrients.ContainsKey(nutrient.Key) || comparison.FoodNutrients[nutrient.Key] != test.FoodNutrients[nutrient.Key])
+                {
+                    return false;
+                }
+            }
+
+            return true;
+        }
+
+        /// <summary>
+        /// Compares two Day objects. Returns true if they are identical, and false otherwise
+        /// </summary>
+        /// <param name="test"></param>
+        /// <param name="comparison"></param>
+        /// <returns></returns>
+        public static bool compareDays(Day test, Day comparison)
+        {
+            if (comparison == null)
+            {
+                return false;
+            }
+
+            
+            for(int i = 0; i < test.Foods.Count; i++)
+            {
+                if (!compareFoods(test.Foods[i], comparison.Foods[i]))
+                {
+                    return false;
+                }
+            }
+
+            return true;
+        }
+
+        /// <summary>
+        /// Compares two Week objects. Returns true if they are identical, and false otherwise
+        /// </summary>
+        /// <param name="test"></param>
+        /// <param name="comparison"></param>
+        /// <returns></returns>
+        public static bool compareWeeks(Week test, Week comparison)
+        {
+            if (comparison == null)
+            {
+                return false;
+            }
+
+            if(test.StartDate != comparison.StartDate)
+            {
+                return false;
+            }
+
+
+            for (int i = 0; i < test.Days.Count; i++)
+            {
+                if (!compareDays(test.Days[i], comparison.Days[i]))
+                {
+                    return false;
+                }
+            }
+
+            return true;
         }
     }
 }
