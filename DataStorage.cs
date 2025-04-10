@@ -188,7 +188,7 @@ namespace NutriWeekMAUI
 
         public static void LoadWeeks()
         {
-            Testing.LoadExampleWeeks();
+            Testing.GenerateTestWeeks();
         }
 
         public static Dictionary<string, float> LoadDefaultDVs()
