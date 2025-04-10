@@ -17,7 +17,7 @@ namespace NutriWeekMAUI.InputSystems
         /// </summary>
         /// <returns></returns>
         
-        public static List<string> GetAutocompleteList(string input)
+        public static List<string> GetAutoCompleteList(string input)
         {
             TreeNode Cur = NameTree.Root;
             TreeNode FirstNode = null;
