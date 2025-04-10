@@ -160,6 +160,26 @@ namespace NutriWeekMAUI
             return exampleDay;
         }
 
+        /// <summary>
+        /// Generates a random Food object with a random name and random nutrition values for testing
+        /// </summary>
+        /// <returns></returns>
+        public static Food GenerateTestFood()
+        {
+            Food exampleFood = new Food(GenerateTestString());
+
+            exampleFood.FoodNutrients.Add("fat", (float)(rand.NextDouble() * 32768.0));
+            exampleFood.FoodNutrients.Add("cholesterol", (float)(rand.NextDouble() * 32768.0));
+            exampleFood.FoodNutrients.Add("sodium", (float)(rand.NextDouble() * 32768.0));
+            exampleFood.FoodNutrients.Add("carbohydrates", (float)(rand.NextDouble() * 32768.0));
+            exampleFood.FoodNutrients.Add("fiber", (float)(rand.NextDouble() * 32768.0));
+            exampleFood.FoodNutrients.Add("sugars", (float)(rand.NextDouble() * 32768.0));
+            exampleFood.FoodNutrients.Add("proteins", (float)(rand.NextDouble() * 32768.0));
+
+            return exampleFood;
+
+        }
+
         public static string validCharacters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQURSTUVWXYZ1234567890!@#$%^&*()-=_+[]{};:'\"<>,./?\\|`~";
         /// <summary>
         /// Returns a random string of a random length for testing
