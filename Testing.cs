@@ -11,8 +11,9 @@ using System.Threading.Tasks;
 using System.Data.Common;
 using NutriWeek.DataStructures;
 using NutriWeekMAUI.InputSystems;
-using static Android.Renderscripts.ScriptGroup;
+//using static Android.Renderscripts.ScriptGroup;
 using System.Runtime.ConstrainedExecution;
+using NutriWeekMAUI.ViewModels;
 
 namespace NutriWeekMAUI
 {
@@ -212,6 +213,10 @@ namespace NutriWeekMAUI
             return s;
         }
 
+        /// <summary>
+        /// Test the TapNType system by feeding it random strings as both data source and 'user' input, then validating that all the entries in its output list contain the input
+        /// </summary>
+        /// <returns>Whether it passed the test or not</returns>
         public static bool GenerateTestTapNType()
         {
             Random num = new Random();
@@ -235,7 +240,54 @@ namespace NutriWeekMAUI
             return Pass;
         }
 
+        /// <summary>
+        /// Test several UI elements by initializing them with various random week data and then testing if its primary storage object holds all of the expected data
+        /// </summary>
+        /// <param name="repeats">The number of times to repeat the test</param>
+        public static void TestUI(int repeats = 20)
+        {
+            for (int tries = 0; tries < repeats; tries++)
+            {
+                GenerateTestWeeks();
 
+                WeeksViewModel wvm = new WeeksViewModel();
+                for (int i = 0; i < DataStorage.StoredWeeks.Count; i++)
+                {
+                    if (DataStorage.StoredWeeks[i].StartDate != wvm.Weeks[i])
+                    {
+                        Console.WriteLine("ERROR: WEEKS VIEW NOT DISPLAYING WEEKS PROPERLY!");
+                    }
+                }
+
+
+                CurrentWeekViewModel cwvm = new CurrentWeekViewModel();
+
+                for (int i = 0; i < DataStorage.StoredWeeks[MauiProgram.CurrentWeekViewIndex].Days.Count; i++)
+                {
+                    for (int j = 0; j < DataStorage.StoredWeeks[MauiProgram.CurrentWeekViewIndex].Days[i].Foods.Count; j++)
+                    {
+                        if (!cwvm.Days[i].Contains(DataStorage.StoredWeeks[MauiProgram.CurrentWeekViewIndex].Days[i].Foods[j].ToString()))
+                        {
+                            Console.WriteLine("ERROR: WEEK VIEW NOT DISPLAYING DAILY FOODS PROPERLY!");
+                        }
+                    }
+                }
+
+                DayViewModel dvm = new DayViewModel();
+
+                for (int i = 0; i < DataStorage.StoredWeeks[MauiProgram.CurrentWeekViewIndex].Days[MauiProgram.CurrentDayViewIndex].Foods.Count; i++)
+                {
+                    if (!dvm.Days[i].Contains(DataStorage.StoredWeeks[MauiProgram.CurrentWeekViewIndex].Days[MauiProgram.CurrentDayViewIndex].Foods[i].Name))
+                    {
+                        Console.WriteLine("ERROR: DAY VIEW NOT DISPLAYING FOODS PROPERLY!");
+                    }
+                }
+            }
+        }
+
+        /// <summary>
+        /// Test the database IO system by storing and loading various random data to it and validating that they match
+        /// </summary>
         public static void TestDatabaseIO()
         {
             for(int i = 0; i < 10; i++)
@@ -277,7 +329,7 @@ namespace NutriWeekMAUI
         /// </summary>
         /// <param name="test"></param>
         /// <param name="comparison"></param>
-        /// <returns></returns>
+        /// <returns>Whether they contain identical informatio</returns>
         public static bool compareFoods(Food test, Food comparison)
         {
             if(comparison == null)
@@ -305,7 +357,7 @@ namespace NutriWeekMAUI
         /// </summary>
         /// <param name="test"></param>
         /// <param name="comparison"></param>
-        /// <returns></returns>
+        /// <returns>Whether they contain identical information</returns>
         public static bool compareDays(Day test, Day comparison)
         {
             if (comparison == null)
@@ -330,7 +382,7 @@ namespace NutriWeekMAUI
         /// </summary>
         /// <param name="test"></param>
         /// <param name="comparison"></param>
-        /// <returns></returns>
+        /// <returns>Whether they contain identical informatio</returns>
         public static bool compareWeeks(Week test, Week comparison)
         {
             if (comparison == null)
