@@ -17,23 +17,6 @@ namespace NutriWeekMAUI.ViewModels
         {
             Days = new ObservableCollection<string>();
 
-            if(MauiProgram.CurrentFood.Name == "New Food")
-            {
-                Days.Add("TapNType");
-                Days.Add("Manual Input");
-                Days.Add("Recommend options");
-            }
-            else
-            {
-                string nutrition = "Food Nutrition Data: \n";
-
-                foreach (KeyValuePair<string, float> k in MauiProgram.CurrentFood.FoodNutrients)
-                {
-                    nutrition += k.Key + ": " + k.Value + "\n";
-                }
-
-                Days.Add(nutrition);
-            }
         }
 
         /// Collection of days
@@ -68,6 +51,8 @@ namespace NutriWeekMAUI.ViewModels
         [RelayCommand]
         async Task BackToWeeks()
         {
+            //When going back, remove the 'New Food' empty food that was created
+            DataStorage.StoredWeeks[MauiProgram.CurrentWeekViewIndex].Days[MauiProgram.CurrentDayViewIndex].Foods.RemoveAll((Food f) => { return f.Name == "New Food"; });
             await Shell.Current.GoToAsync(nameof(DayPage));
         }
     }

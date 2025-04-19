@@ -22,9 +22,12 @@
             VerticalOptions="Center"
             HorizontalOptions="Start"/>
 
+
         <Entry
-            Placeholder="Enter Food"
-            Grid.Row="1" />
+            Placeholder="Food Name"
+            Grid.Row="1"
+            TextColor="DarkSlateGray"
+            BackgroundColor="MediumAquamarine"/>
 
         <Button
             x:Name="EnterBtn"
