@@ -17,109 +17,130 @@
 
         <Entry
             Grid.ColumnSpan="2"
-            Placeholder="Food Name" />
+            Placeholder="Food Name"
+            TextColor="DarkSlateGray" />
 
         <Entry
             Grid.Row="1"
             Grid.ColumnSpan="2"
-            Placeholder="Fat Value" />
+            Placeholder="Fat Value"
+            TextColor="DarkSlateGray" />
 
         <Entry
             Grid.Row="2"
             Grid.ColumnSpan="2"
-            Placeholder="Sat-Fat Value" />
+            Placeholder="Sat-Fat Value"
+            TextColor="DarkSlateGray"/>
 
-            <Entry
-    Grid.Row="3"
-    Grid.ColumnSpan="2"
-    Placeholder="Trans-Fat Value" />
+        <Entry
+            Grid.Row="3"
+            Grid.ColumnSpan="2"
+            Placeholder="Trans-Fat Value"
+            TextColor="DarkSlateGray" />
 
-            <Entry
-    Grid.Row="4"
-    Grid.ColumnSpan="2"
-    Placeholder="Cholestrerol Value" />
+        <Entry
+            Grid.Row="4"
+            Grid.ColumnSpan="2"
+            Placeholder="Cholestrerol Value"
+            TextColor="DarkSlateGray" />
 
-            <Entry
-    Grid.Row="5"
-    Grid.ColumnSpan="2"
-    Placeholder="Carb Value" />
+        <Entry
+            Grid.Row="5"
+            Grid.ColumnSpan="2"
+            Placeholder="Carb Value"
+            TextColor="DarkSlateGray" />
 
-            <Entry
-    Grid.Row="6"
-    Grid.ColumnSpan="2"
-    Placeholder="Sugar Value" />
+        <Entry
+            Grid.Row="6"
+            Grid.ColumnSpan="2"
+            Placeholder="Sugar Value"
+            TextColor="DarkSlateGray" />
 
-            <Entry
-    Grid.Row="7"
-    Grid.ColumnSpan="2"
-    Placeholder="Fiber Value" />
+        <Entry
+            Grid.Row="7"
+            Grid.ColumnSpan="2"
+            Placeholder="Fiber Value"
+            TextColor="DarkSlateGray" />
 
-            <Entry
-    Grid.Row="8"
-    Grid.ColumnSpan="2"
-    Placeholder="Protein Value" />
+        <Entry
+            Grid.Row="8"
+            Grid.ColumnSpan="2"
+            Placeholder="Protein Value"
+            TextColor="DarkSlateGray" />
 
-            <Entry
-    Grid.Row="9"
-    Grid.ColumnSpan="2"
-    Placeholder="Sodium Value" />
+        <Entry
+            Grid.Row="9"
+            Grid.ColumnSpan="2"
+            Placeholder="Sodium Value"
+            TextColor="DarkSlateGray" />
 
-            <Entry
-    Grid.Row="10"
-    Grid.ColumnSpan="2"
-    Placeholder="Vitamin-A Value" />
+        <Entry
+            Grid.Row="10"
+            Grid.ColumnSpan="2"
+            Placeholder="Vitamin-A Value"
+            TextColor="DarkSlateGray" />
 
-            <Entry
-    Grid.Row="11"
-    Grid.ColumnSpan="2"
-    Placeholder="Vitamin-E Value" />
+        <Entry
+            Grid.Row="11"
+            Grid.ColumnSpan="2"
+            Placeholder="Vitamin-E Value"
+            TextColor="DarkSlateGray" />
 
-            <Entry
-Grid.Row="12"
-Grid.ColumnSpan="2"
-Placeholder="Vitamin-C Value" />
+        <Entry
+            Grid.Row="12"
+            Grid.ColumnSpan="2"
+            Placeholder="Vitamin-C Value"
+            TextColor="DarkSlateGray" />
 
-            <Entry
-Grid.Row="13"
-Grid.ColumnSpan="2"
-Placeholder="Potassium Value" />
+        <Entry
+            Grid.Row="13"
+            Grid.ColumnSpan="2"
+            Placeholder="Potassium Value"
+            TextColor="DarkSlateGray" />
 
-            <Entry
-Grid.Row="14"
-Grid.ColumnSpan="2"
-Placeholder="Calcium Value" />
+        <Entry
+            Grid.Row="14"
+            Grid.ColumnSpan="2"
+            Placeholder="Calcium Value"
+            TextColor="DarkSlateGray" />
 
-            <Entry
-Grid.Row="15"
-Grid.ColumnSpan="2"
-Placeholder="Phosporous Value" />
+        <Entry
+            Grid.Row="15"
+            Grid.ColumnSpan="2"
+            Placeholder="Phosporous Value"
+            TextColor="DarkSlateGray" />
 
-            <Entry
-Grid.Row="16"
-Grid.ColumnSpan="2"
-Placeholder="Iron Value" />
+        <Entry
+            Grid.Row="16"
+            Grid.ColumnSpan="2"
+            Placeholder="Iron Value"
+            TextColor="DarkSlateGray" />
 
-            <Entry
-Grid.Row="17"
-Grid.ColumnSpan="2"
-Placeholder="Magnesium Value" />
+        <Entry
+            Grid.Row="17"
+            Grid.ColumnSpan="2"
+            Placeholder="Magnesium Value"
+            TextColor="DarkSlateGray" />
 
-            <Entry
-Grid.Row="18"
-Grid.ColumnSpan="2"
-Placeholder="Zinc Value" />
+        <Entry
+            Grid.Row="18"
+            Grid.ColumnSpan="2"
+            Placeholder="Zinc Value"
+            TextColor="DarkSlateGray" />
 
-            <Entry
-Grid.Row="19"
-Grid.ColumnSpan="2"
-Placeholder="Copper Value" />
+        <Entry
+            Grid.Row="19"
+            Grid.ColumnSpan="2"
+            Placeholder="Copper Value"
+            TextColor="DarkSlateGray" />
 
-            <Entry
-Grid.Row="20"
-Grid.ColumnSpan="2"
-Placeholder="Manganese Value" />
+        <Entry
+            Grid.Row="20"
+            Grid.ColumnSpan="2"
+            Placeholder="Manganese Value"
+            TextColor="DarkSlateGray" />
 
-            <Button
+        <Button
             x:Name="EnterBtn"
             Grid.Row="21"
             Grid.ColumnSpan="2"
