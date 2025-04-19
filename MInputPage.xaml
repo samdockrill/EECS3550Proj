@@ -352,7 +352,8 @@
         BorderWidth="2"
         SemanticProperties.Hint="Navigates to the WeeksPage content page"
         HorizontalOptions="Center"
-        VerticalOptions="Center"/>
+        VerticalOptions="Center"
+        Command="{Binding EnterManualDataCommand}"/>
 
         <Button
         x:Name="BackBtn"

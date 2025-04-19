@@ -19,10 +19,9 @@ namespace NutriWeekMAUI.ViewModels
 
             if(MauiProgram.CurrentFood.Name == "New Food")
             {
-                Days.Add("Custom Foods: Coming Soon!");
                 Days.Add("TapNType");
-                Days.Add("Scan Barcode");
-                Days.Add("Recommended options");
+                //Days.Add("Scan Barcode");
+                //Days.Add("Recommended options");
                 Days.Add("Manual Input");
             }
             else

@@ -47,6 +47,12 @@ namespace NutriWeekMAUI.ViewModels
             }
         }
 
+        [RelayCommand]
+        async Task EnterManualData()
+        {
+            await Shell.Current.GoToAsync(nameof(FoodPage));
+        }
+
         /// This is used to go back to the weeks page
         [RelayCommand]
         async Task BackToWeeks()
