@@ -15,21 +15,39 @@ namespace NutriWeekMAUI.ViewModels
         /// Constructor
         public TNTViewModel()
         {
-            Days = new ObservableCollection<string>();
+            Foods = new ObservableCollection<string>();
 
         }
 
         /// Collection of days
         [ObservableProperty]
-        ObservableCollection<string> days;
+        ObservableCollection<string> foods;
 
         /// Property to hold the selected week
         [ObservableProperty]
         string text;
 
-        /// This is used to pass the selected day to the DayPage
+        /// <summary>
+        /// This is used to retrieve the search results from the TapNType method
+        /// </summary>
+        /// <param name="s"></param>
+        /// <returns></returns>
         [RelayCommand]
-        async Task GoToDay(string s)
+        async Task GetSearchResults()
+        {
+            if (string.IsNullOrWhiteSpace(Text))
+            {
+                return;
+            }
+
+            //Get the search results from the TapNType method
+
+            Text = string.Empty;
+        }
+
+        /// This is used to pass the desired food item to the DayPage
+        [RelayCommand]
+        async Task AddToDay(string s)
         {
 
         }

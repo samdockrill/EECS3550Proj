@@ -12,16 +12,17 @@
     
 
     <Grid
-    RowDefinitions="*, *, *, *, *, *, *, *, *, *, *, *, *, *, *, *, *, *, *, *, *, Auto, Auto"
-    ColumnDefinitions=".1*, *"
+    RowDefinitions="*, *, *, *, *, *, *, *, *, *, *, *, *, *, *, *, *, *, *, *, *, Auto, Auto, Auto"
+    ColumnDefinitions=".45*, *"
     Padding="10"
     RowSpacing="10"
     ColumnSpacing="10">
 
 
         <Label
-        Text="Enter nutrition info for new food"
+        Text="Enter Nutrition Info for New Food"
         FontSize="25"
+        Grid.ColumnSpan="2"
         TextColor="DarkSlateGray"
         HorizontalOptions="Start"/>     
 

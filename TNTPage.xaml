@@ -8,7 +8,7 @@
              BackgroundColor="White">
 
     <Grid
-    RowDefinitions="Auto, Auto, Auto"
+    RowDefinitions="Auto, Auto, *, Auto"
     ColumnDefinitions=".75*, .25*"
     Padding="10"
     RowSpacing="10"
@@ -34,15 +34,45 @@
             Grid.Row="1"
             Grid.Column="1"
             BackgroundColor="MediumSeaGreen"
-            Text="Add"
+            Text="Search"
+            Command="{Binding GetSearchResultsCommand}"
             TextColor="DarkSlateGray"
             BorderColor="DarkSlateGray"
             BorderWidth="2"
             VerticalOptions="Center" />
 
+        <CollectionView
+            Grid.Row="2"
+            Grid.ColumnSpan="2"
+            ItemsSource="{Binding Foods}"
+            SelectionMode="None">
+            <CollectionView.ItemTemplate>
+                <DataTemplate
+                    x:DataType="{x:Type x:String}">
+                    <Grid
+                        x:Name="FoodGrid"
+                            Padding="0, 10"
+                            IsVisible="False">
+                            <Border
+                                BackgroundColor="DarkSlateGray">
+                                <Border.GestureRecognizers>
+                                    <TapGestureRecognizer
+                                        Command="{Binding Source={RelativeSource AncestorType={x:Type viewmodel:TNTViewModel}}, Path=AddToDayCommand}"
+                                        CommandParameter="{Binding .}"/>
+                                </Border.GestureRecognizers>
+                                <Label Text="{Binding .}"
+                                    FontSize="30"
+                                    BackgroundColor="MediumSeaGreen"
+                                    TextColor="DarkSlateGray"/>
+                            </Border>
+                        </Grid>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+
         <Button
             x:Name="BackBtn"
-            Grid.Row="2"
+            Grid.Row="3"
             Grid.ColumnSpan="2"
             BackgroundColor="MediumSeaGreen"
             Text="Go Back"
