@@ -1,5 +1,4 @@
-using Xamarin.Forms;
-using ZXing.Net.Mobile.Forms;
+using ZXing.Net.Maui;
 using System.Net.Http;
 using Newtonsoft.Json.Linq;
 
@@ -9,68 +8,87 @@ namespace NutriWeekMAUI
     public class BarcodeScan
     {
     
-    public BarcodeScan()
-    {
-        var scanner = newZXingScannerView; //Initalize scanner
+        public BarcodeScan()
         {
-            //Scanner fill width and height and starts scanning
-            HorizontalOptions=LayoutOptions.FillAndExpand,
-            VerticalOptions=LayoutOptions.FillAndExpand,
-            IsScanning = true
-        };
+            CameraBarcodeReaderView cameraView;
+            Label resultLabel;
+        }
 
-        scanner.OnScanResult += (result) => //When barcode scanned
+        public BarcodeScanPage()
         {
-            scanner.IsAnalyzing = false; //Stop Scanning
+            Title = "Scan Barcode";
 
-            Device.BeginInvokeOnMainThread(async () =>
+            cameraView = new CameraBarcodeReaderView
             {
-                string productName = LookupProductName(result.Text); //Call API to get info
-                DisplayAlert("Scanned Barcode", result.Text, "OK"); //Confirm Scan happened
-                scanner.IsAnalyzing = true; //Scan again
-            });
-        };
+                HorizontalOptions = LayoutOptions.FillAndExpand,
+                VerticalOptions = LayoutOptions.FillAndExpand,
+                IsDetecting = true,
+                IsTorchOn = false,
+                AutomationId = "cameraView"
+            };
 
-       /* Not sure if this is right or needed
-       
-       Content = new StackLayout
-        {
-            Children = {
-                scanner 
-            }
-        }; */
-    
-        private async Task<string> LookupProductName(string barcode)
-        {
-            string url = $"httpshttps://world.openfoodfacts.org/api/v0/product/{barcode}.json"; //API endpoint
+            cameraView.BarcodesDetected += OnBarcodesDetected;
 
-            using (var client = new HttpClient()) //client for web requests
+            resultLabel = new Label
             {
-                try
-                {
-                    var response = await client.getAsync(url); //get request
-                    if (!response.IsSuccessStatusCode)  //check for fail
-                        return("Failed to fetch product."); //error message
+                Text = "Scan a barcode...",
+                HorizontalOptions = LayoutOptions.Center,
+                VerticalOptions = LayoutOptions.Center,
+                FontSize = 20
+            };
 
-                    string content = await response.Content.ReadAsStringAsync(); //read JSON
-                    var data = JObject.Parse(content);  //Parse JSON into object
-
-                    if(data["status"]?.ToString() == "1") //Product found?
-                    {
-                        string productName = data["product"]?["product_name"]?.ToString(); //Get name
-                        return(string.IsNullOrWhiteSpace(productName) ? "Unnamed product" : productName);
-                    }
-                    else
-                    {
-                        return("Product not found."); //not found
-                    }
-                }
-                catch
+            Content = new Grid
+            {
+                Children =
                 {
-                    return("Error fetching product."); //catch errors
+                    cameraView,
+                    resultLabel
                 }
+            };
+        }
+
+        private async void OnBarcodesDetected(object sender, BarcodeDetectionEventArgs e)
+        {
+            cameraView.IsDetecting = false;
+
+            if(e.Results.FirstOrDefault() is BarcodeResult result)
+            {
+                string barcode = result.Value;
+                string productName = await LookupProductName(barcode);
+
+                await DisplayAlert("Product Found", productName, "OK");
             }
         }
-    }
+
+        private async Task<string> LookupProductName(string barcode)
+        {
+            string url = $"https://world.openfoodfacts.org/api/v0/product/{barcode}.json";
+        
+            using var client = new HttpClient();
+            try
+            {
+                var response = await client.GetAsync(url);
+            if (!response.IsSuccessStatusCode)
+                return "Failed to fetch product.";
+
+            string json = await response.Content.ReadAsStringAsync();
+            var data = JObject.Parse(json);
+
+            if (data["status"]?.ToString() == "1")
+            {
+                string productName = data["product"]?["product_name"]?.ToString();
+                return string.IsNullOrWhiteSpace(productName) ? "Unnamed product" : productName;
+            }
+
+            return "Product not found.";
+        }
+        catch
+        {
+            return "Error fetching product.";
+        }
+
+            
+        }
+
     }
 }

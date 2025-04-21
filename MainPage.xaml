@@ -4,8 +4,9 @@
              x:Class="NutriWeekMAUI.MainPage"
              xmlns:viewmodel="clr-namespace:NutriWeekMAUI.ViewModels"
              x:DataType="viewmodel:MainViewModel"
-             BackgroundColor="White">
-
+             BackgroundColor="White"
+             xmlns:zxing="clr-namespace:ZXing.Net.Maui.Controls;assembly=ZXing.Net.Maui.Controls">
+	
     <ScrollView>
         <VerticalStackLayout
             Padding="30,0"

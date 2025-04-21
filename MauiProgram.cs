@@ -1,6 +1,7 @@
 ﻿using Microsoft.Extensions.Logging;
 using NutriWeekMAUI.DataStructures;
 using NutriWeekMAUI.ViewModels;
+using ZXing.Net.MAUI;
 
 namespace NutriWeekMAUI
 {
@@ -16,6 +17,7 @@ namespace NutriWeekMAUI
             var builder = MauiApp.CreateBuilder();
             builder
                 .UseMauiApp<App>()
+                .UseBarcodeReader()
                 .ConfigureFonts(fonts =>
                 {
                     fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
