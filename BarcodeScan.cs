@@ -7,58 +7,58 @@ namespace NutriWeekMAUI
 {
     public class BarcodeScan
     {
-    
-        public BarcodeScan()
-        {
-            CameraBarcodeReaderView cameraView;
-            Label resultLabel;
-        }
-
-        public BarcodeScanPage()
-        {
-            Title = "Scan Barcode";
-
-            cameraView = new CameraBarcodeReaderView
+        /*
+            public BarcodeScan()
             {
-                HorizontalOptions = LayoutOptions.FillAndExpand,
-                VerticalOptions = LayoutOptions.FillAndExpand,
-                IsDetecting = true,
-                IsTorchOn = false,
-                AutomationId = "cameraView"
-            };
-
-            cameraView.BarcodesDetected += OnBarcodesDetected;
-
-            resultLabel = new Label
-            {
-                Text = "Scan a barcode...",
-                HorizontalOptions = LayoutOptions.Center,
-                VerticalOptions = LayoutOptions.Center,
-                FontSize = 20
-            };
-
-            Content = new Grid
-            {
-                Children =
-                {
-                    cameraView,
-                    resultLabel
-                }
-            };
-        }
-
-        private async void OnBarcodesDetected(object sender, BarcodeDetectionEventArgs e)
-        {
-            cameraView.IsDetecting = false;
-
-            if(e.Results.FirstOrDefault() is BarcodeResult result)
-            {
-                string barcode = result.Value;
-                string productName = await LookupProductName(barcode);
-
-                await DisplayAlert("Product Found", productName, "OK");
+                CameraBarcodeReaderView cameraView;
+                Label resultLabel;
             }
-        }
+
+            public BarcodeScanPage()
+            {
+                Title = "Scan Barcode";
+
+                cameraView = new CameraBarcodeReaderView
+                {
+                    HorizontalOptions = LayoutOptions.FillAndExpand,
+                    VerticalOptions = LayoutOptions.FillAndExpand,
+                    IsDetecting = true,
+                    IsTorchOn = false,
+                    AutomationId = "cameraView"
+                };
+
+                cameraView.BarcodesDetected += OnBarcodesDetected;
+
+                resultLabel = new Label
+                {
+                    Text = "Scan a barcode...",
+                    HorizontalOptions = LayoutOptions.Center,
+                    VerticalOptions = LayoutOptions.Center,
+                    FontSize = 20
+                };
+
+                Content = new Grid
+                {
+                    Children =
+                    {
+                        cameraView,
+                        resultLabel
+                    }
+                };
+            }
+
+            private async void OnBarcodesDetected(object sender, BarcodeDetectionEventArgs e)
+            {
+                cameraView.IsDetecting = false;
+
+                if(e.Results.FirstOrDefault() is BarcodeResult result)
+                {
+                    string barcode = result.Value;
+                    string productName = await LookupProductName(barcode);
+
+                    await DisplayAlert("Product Found", productName, "OK");
+                }
+            }*/
 
         private async Task<string> LookupProductName(string barcode)
         {

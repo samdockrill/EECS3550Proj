@@ -1,7 +1,7 @@
 ﻿using Microsoft.Extensions.Logging;
 using NutriWeekMAUI.DataStructures;
 using NutriWeekMAUI.ViewModels;
-using ZXing.Net.MAUI;
+using ZXing.Net.Maui.Controls;
 
 namespace NutriWeekMAUI
 {
