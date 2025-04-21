@@ -14,6 +14,7 @@ namespace NutriWeekMAUI
             Label resultLabel;
         }
 
+        /*
         public BarcodeScanPage()
         {
             Title = "Scan Barcode";
@@ -58,7 +59,7 @@ namespace NutriWeekMAUI
 
                 await DisplayAlert("Product Found", productName, "OK");
             }
-        }
+        }*/
 
         private async Task<string> LookupProductName(string barcode)
         {
