@@ -27,35 +27,16 @@ namespace NutriWeekMAUI.ViewModels
         [ObservableProperty]
         string text;
 
-        /// This is used to pass the selected day to the DayPage
-        [RelayCommand]
-        async Task GoToDay(string s)
-        {
-            //DO NOTHING if the user clicks on the Nutrition Data box
-            if (s.Contains("Nutrition Data"))
-            {
-                return;
-            }
-
-            if (s.Contains("TapNType"))
-            {
-                await Shell.Current.GoToAsync(nameof(FoodPage));
-            }
-            else if (s.Contains("Manual Input"))
-            {
-                await Shell.Current.GoToAsync(nameof(FoodPage));
-            }
-        }
-
+        /// This is used to register all of the maunally entered food data and add it to the current day
         [RelayCommand]
         async Task EnterManualData()
         {
             await Shell.Current.GoToAsync(nameof(FoodPage));
         }
 
-        /// This is used to go back to the weeks page
+        /// This is used to go back to the day page
         [RelayCommand]
-        async Task BackToWeeks()
+        async Task BackToDay()
         {
             //When going back, remove the 'New Food' empty food that was created
             DataStorage.StoredWeeks[MauiProgram.CurrentWeekViewIndex].Days[MauiProgram.CurrentDayViewIndex].Foods.RemoveAll((Food f) => { return f.Name == "New Food"; });

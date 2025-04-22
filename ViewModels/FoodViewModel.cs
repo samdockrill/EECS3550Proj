@@ -15,14 +15,14 @@ namespace NutriWeekMAUI.ViewModels
         /// Constructor
         public FoodViewModel()
         {
-            Days = new ObservableCollection<string>();
+            Inputs = new ObservableCollection<string>();
 
             if(MauiProgram.CurrentFood.Name == "New Food")
             {
-                Days.Add("TapNType");
+                Inputs.Add("TapNType");
                 //Days.Add("Scan Barcode");
                 //Days.Add("Recommended options");
-                Days.Add("Manual Input");
+                Inputs.Add("Manual Input");
             }
             else
             {
@@ -33,21 +33,21 @@ namespace NutriWeekMAUI.ViewModels
                     nutrition += k.Key + ": " + k.Value + "\n";
                 }
 
-                Days.Add(nutrition);
+                Inputs.Add(nutrition);
             }
         }
 
         /// Collection of days
         [ObservableProperty]
-        ObservableCollection<string> days;
+        ObservableCollection<string> inputs;
 
         /// Property to hold the selected week
         [ObservableProperty]
         string text;
 
-        /// This is used to pass the selected day to the DayPage
+        /// This is used to navigate to the desired input method
         [RelayCommand]
-        async Task GoToDay(string s)
+        async Task GoToInputs(string s)
         {
             //return;
             //DO NOTHING if the user clicks on the Nutrition Data box
@@ -65,9 +65,9 @@ namespace NutriWeekMAUI.ViewModels
             }
         }
 
-        /// This is used to go back to the weeks page
+        /// This is used to go back to the day page
         [RelayCommand]
-        async Task BackToWeeks()
+        async Task BackToDay()
         {
             await Shell.Current.GoToAsync(nameof(DayPage));
         }

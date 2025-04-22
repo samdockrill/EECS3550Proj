@@ -277,7 +277,7 @@ namespace NutriWeekMAUI
 
                 for (int i = 0; i < DataStorage.StoredWeeks[MauiProgram.CurrentWeekViewIndex].Days[MauiProgram.CurrentDayViewIndex].Foods.Count; i++)
                 {
-                    if (!dvm.Days[i].Contains(DataStorage.StoredWeeks[MauiProgram.CurrentWeekViewIndex].Days[MauiProgram.CurrentDayViewIndex].Foods[i].Name))
+                    if (!dvm.ChosenFood[i].Contains(DataStorage.StoredWeeks[MauiProgram.CurrentWeekViewIndex].Days[MauiProgram.CurrentDayViewIndex].Foods[i].Name))
                     {
                         Console.WriteLine("ERROR: DAY VIEW NOT DISPLAYING FOODS PROPERLY!");
                     }

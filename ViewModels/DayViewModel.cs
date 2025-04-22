@@ -15,18 +15,21 @@ namespace NutriWeekMAUI.ViewModels
         /// Constructor
         public DayViewModel()
         {
-            Days = new ObservableCollection<string>();
+            ChosenFood = new ObservableCollection<string>();
 
+            //Loop over the 'Foods' list for the current day and add each food to the ChosenFood list
             foreach (Food f in DataStorage.StoredWeeks[MauiProgram.CurrentWeekViewIndex].Days[MauiProgram.CurrentDayViewIndex].Foods)
             {
-                Days.Add(f.Name);
+                ChosenFood.Add(f.Name);
             }
 
-            if(Days.Count < 3)
+            //Add a button to add a new food if there are less than 3 foods
+            if (ChosenFood.Count < 3)
             {
-                Days.Add(" + Add a New Food");
+                ChosenFood.Add(" + Add a New Food");
             }
 
+            //Add a button to view the nutrition data
             string nutrition = "Full Daily Nutrition Data: \n" +
                 "Placeholder Demo: Actual Graph Coming Soon!\n";
 
@@ -35,20 +38,20 @@ namespace NutriWeekMAUI.ViewModels
                 nutrition += k.Key + ": " + k.Value + "\n";
             }
 
-            Days.Add(nutrition);
+            ChosenFood.Add(nutrition);
         }
 
         /// Collection of days
         [ObservableProperty]
-        ObservableCollection<string> days;
+        ObservableCollection<string> chosenFood;
 
         /// Property to hold the selected week
         [ObservableProperty]
         string text;
 
-        /// This is used to pass the selected day to the DayPage
+        /// This is used to pass the selected food button to the FoodPage
         [RelayCommand]
-        async Task GoToDay(string s)
+        async Task GoToFood(string s)
         {
             //DO NOTHING if the user clicks on the Nutrition Data box
             if(s.Contains("Nutrition Data"))
@@ -76,12 +79,13 @@ namespace NutriWeekMAUI.ViewModels
                 }
             }
 
+            //navigate to the FoodPage
             await Shell.Current.GoToAsync(nameof(FoodPage));
         }
 
-        /// This is used to go back to the weeks page
+        /// This is used to go back to the current week page
         [RelayCommand]
-        async Task BackToWeeks()
+        async Task BackToCurrentWeek()
         {
             await Shell.Current.GoToAsync(nameof(CurrentWeekPage));
         }

@@ -368,7 +368,7 @@
         SemanticProperties.Hint="Navigates to the WeeksPage content page"
         HorizontalOptions="Center"
         VerticalOptions="Center"
-        Command="{Binding BackToWeeksCommand}"/>
+        Command="{Binding BackToDayCommand}"/>
 
     </Grid>
     </ScrollView>

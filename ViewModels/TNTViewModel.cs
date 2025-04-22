@@ -52,9 +52,9 @@ namespace NutriWeekMAUI.ViewModels
 
         }
 
-        /// This is used to go back to the weeks page
+        /// This is used to go back to the day page
         [RelayCommand]
-        async Task BackToWeeks()
+        async Task BackToDay()
         {
             //When going back, remove the 'New Food' empty food that was created
             DataStorage.StoredWeeks[MauiProgram.CurrentWeekViewIndex].Days[MauiProgram.CurrentDayViewIndex].Foods.RemoveAll((Food f) => { return f.Name == "New Food"; });

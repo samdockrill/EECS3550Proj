@@ -34,6 +34,7 @@ namespace NutriWeekMAUI.ViewModels
             }
         }
 
+        /// This is used to convert the index of the day to the name of the day
         string DayFromIndex(int i)
         {
             if(i == 0)
@@ -109,8 +110,10 @@ namespace NutriWeekMAUI.ViewModels
                 MauiProgram.CurrentDayViewIndex = 6;
             }
 
+            // Get the day name from the index
             s = DayFromIndex(MauiProgram.CurrentDayViewIndex);
 
+            // Pass the day name to the DayPage and navigate to it
             await Shell.Current.GoToAsync($"{nameof(DayPage)}?Text={s}");
         }
 

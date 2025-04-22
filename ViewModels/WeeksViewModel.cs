@@ -35,6 +35,7 @@ namespace NutriWeekMAUI.ViewModels
         [RelayCommand]
         async Task GoToWeek(string s)
         {
+            //for each week in the list, if the start date is equal to the selected week, set the CurrentWeekViewIndex to that week
             for (int i = 0; i < DataStorage.StoredWeeks.Count; i++)
             {                
                 if (DataStorage.StoredWeeks[i].StartDate == s)
@@ -43,7 +44,8 @@ namespace NutriWeekMAUI.ViewModels
                 }
             }
 
-            if(s == " + Create New Week")
+            //if the selected week has the text " + Create New Week", create a new week
+            if (s == " + Create New Week")
             {
                 int day = DataStorage.StoredWeeks[DataStorage.StoredWeeks.Count - 1].day;
                 int month = DataStorage.StoredWeeks[DataStorage.StoredWeeks.Count - 1].month;
@@ -59,6 +61,7 @@ namespace NutriWeekMAUI.ViewModels
                     }
                 }
 
+                // Create a new week and add it to the list
                 Week newWeek = new Week(month, day);
                 s = newWeek.StartDate;
                 for (int i = 0; i < 7; i++)
@@ -72,6 +75,7 @@ namespace NutriWeekMAUI.ViewModels
                 return;
             }
 
+            //if the selected week is already set, go to that week
             await Shell.Current.GoToAsync($"{nameof(CurrentWeekPage)}?Text={s}");
         }
     }
