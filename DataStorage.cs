@@ -59,7 +59,11 @@ namespace NutriWeekMAUI
                 StoredWeeks.Add(new Week(DateTime.Now.AddDays(-(int)DateTime.Now.DayOfWeek)));
                 for (int i = 0; i < 7; i++)
                 {
-                    StoredWeeks[0].Days.Add(new Day());
+                    Day day = new Day();
+                    day.Foods.Add(LoadedFoodData[Testing.rand.Next(LoadedFoodData.Count())]);
+                    day.Foods.Add(LoadedFoodData[Testing.rand.Next(LoadedFoodData.Count())]);
+                    day.Foods.Add(LoadedFoodData[Testing.rand.Next(LoadedFoodData.Count())]);
+                    StoredWeeks[0].Days.Add(day);
                 }
 
                 SaveSerializedData(StoredWeeks, "C:\\Users\\SamDo\\source\\repos\\NutriWeekMAUI\\weeks.db");

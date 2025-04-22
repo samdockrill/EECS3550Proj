@@ -39,31 +39,31 @@ namespace NutriWeekMAUI.ViewModels
         {
             if(i == 0)
             {
-                return "Monday";
+                return "Sunday";
             }
             if (i == 1)
             {
-                return "Tuesday";
+                return "Monday";
             }
             if (i == 2)
             {
-                return "Wednesday";
+                return "Tuesday";
             }
             if (i == 3)
             {
-                return "Thursday";
+                return "Wednsday";
             }
             if (i == 4)
             {
-                return "Friday";
+                return "Thursday";
             }
             if (i == 5)
             {
-                return "Saturday";
+                return "Friday";
             }
             if (i == 6)
             {
-                return "Monday";
+                return "Saturday";
             }
 
             return "Sunday";
