@@ -51,7 +51,8 @@ namespace NutriWeekMAUI.ViewModels
         [RelayCommand]
         async Task AddToDay(string s)
         {
-
+            DataStorage.StoredWeeks[MauiProgram.CurrentWeekViewIndex].Days[MauiProgram.CurrentDayViewIndex].Foods.Add(DataStorage.NameLookup(s));
+            await Shell.Current.GoToAsync(nameof(DayPage));
         }
 
         /// This is used to go back to the day page
