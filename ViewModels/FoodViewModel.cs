@@ -36,9 +36,12 @@ namespace NutriWeekMAUI.ViewModels
                     {
                         nutrition += " / " + DataStorage.DefaultDVs[k.Key];
                     }
-                    
+                                        
                     nutrition += "\n";
                 }
+
+                nutrition += "Nutrition Score: " + MauiProgram.CurrentFood.Nutriscore;
+                //nutrition += "Potential Allergens: " + MauiProgram.CurrentFood.Allergens + "\n";
 
                 Inputs.Add(nutrition);
             }

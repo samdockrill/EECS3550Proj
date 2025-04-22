@@ -12,8 +12,8 @@ namespace NutriWeekMAUI.DataStructures
         public Dictionary<string, float> FoodNutrients = new Dictionary<string, float>();
         public string Name = "";
         //public string Manufacturuer = "";
-        public string Allergens = "";
-        public string Nutriscore = "";
+        public string Allergens = "unknown";
+        public string Nutriscore = "unknown";
         //public Unit Units = new Unit();
 
         
