@@ -30,8 +30,7 @@ namespace NutriWeekMAUI.ViewModels
             }
 
             //Add a button to view the nutrition data
-            string nutrition = "Full Daily Nutrition Data: \n" +
-                "Placeholder Demo: Actual Graph Coming Soon!\n";
+            string nutrition = "Full Daily Nutrition Data: \n";
 
             foreach (KeyValuePair<string, float> k in DataStorage.StoredWeeks[MauiProgram.CurrentWeekViewIndex].Days[MauiProgram.CurrentDayViewIndex].DailyValues)
             {

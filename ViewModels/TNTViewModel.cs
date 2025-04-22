@@ -16,8 +16,8 @@ namespace NutriWeekMAUI.ViewModels
         /// Constructor
         public TNTViewModel()
         {
-            Foods = new ObservableCollection<string>();
-            GetSearchResults();
+            //Foods = new ObservableCollection<string>();
+            //GetSearchResults();
         }
 
         /// Collection of days
@@ -44,6 +44,9 @@ namespace NutriWeekMAUI.ViewModels
             //Get the search results from the TapNType method
             Foods = TapnType.GetAutoCompleteList(Text);
         }
+
+
+        
 
         List<Food> CachedFoodResults = new List<Food>();
 

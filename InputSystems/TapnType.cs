@@ -19,6 +19,7 @@ namespace NutriWeekMAUI.InputSystems
         
         public static ObservableCollection<string> GetAutoCompleteList(string input)
         {
+            int displayLimit = 50;
             TreeNode Cur = DataStorage.FoodNameTree.Root;
             TreeNode FirstNode = null;
             ObservableCollection<string> AutoCompleteList = new ObservableCollection<string>();
@@ -36,7 +37,7 @@ namespace NutriWeekMAUI.InputSystems
                             for (int i = 0; i < input.Length; i++)
                             {
                                 if (input[i].CompareTo(Cur.FoodName[i]) != 0) break;
-                                if (input[i].CompareTo(Cur.FoodName[i]) == 0 && i == (input.Length - 1)) AutoCompleteList.Add(Cur.FoodName);
+                                if (input[i].CompareTo(Cur.FoodName[i]) == 0 && i == (input.Length - 1) && AutoCompleteList.Count() < displayLimit) AutoCompleteList.Add(Cur.FoodName);
                             }
                         }
                         Cur = Cur.Middle;
@@ -50,7 +51,7 @@ namespace NutriWeekMAUI.InputSystems
                     if (Cur.Parent == null) FirstNode = DataStorage.FoodNameTree.Root;
                     else if (Cur.FoodName[0].CompareTo(Cur.Parent.FoodName[0]) != 0) FirstNode = Cur;
 
-                    if (Cur.FoodName.Contains(input)) AutoCompleteList.Add(Cur.FoodName);
+                    if (Cur.FoodName.Contains(input) && AutoCompleteList.Count() < displayLimit) AutoCompleteList.Add(Cur.FoodName);
 
                     if (Cur.Middle != null) Cur = Cur.Middle;
                     else Cur = FirstNode.Left;
@@ -63,7 +64,7 @@ namespace NutriWeekMAUI.InputSystems
                     if (Cur.Parent == null) FirstNode = DataStorage.FoodNameTree.Root;
                     else if (Cur.FoodName[0].CompareTo(Cur.Parent.FoodName[0]) != 0) FirstNode = Cur;
 
-                    if (Cur.FoodName.Contains(input)) AutoCompleteList.Add(Cur.FoodName);
+                    if (Cur.FoodName.Contains(input) && AutoCompleteList.Count() < displayLimit) AutoCompleteList.Add(Cur.FoodName);
 
                     if (Cur.Middle != null) Cur = Cur.Middle;
 

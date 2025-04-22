@@ -27,6 +27,7 @@
             Placeholder="Food Name"
             Grid.Row="1"
             TextColor="DarkSlateGray"
+            TextChanged="OnEntryTextChanged"
             BackgroundColor="MediumAquamarine"/>
 
         <Button
@@ -52,7 +53,7 @@
                     <Grid
                         x:Name="FoodGrid"
                             Padding="0, 10"
-                            IsVisible="False">
+                            IsVisible="True">
                             <Border
                                 BackgroundColor="DarkSlateGray">
                                 <Border.GestureRecognizers>

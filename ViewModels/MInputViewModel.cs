@@ -33,9 +33,11 @@ namespace NutriWeekMAUI.ViewModels
         async Task EnterManualData()
         {
             Food newFood = new Food(text);
+            //newFood.FoodNutrients.Add("a", 1);
             DataStorage.StoredWeeks[MauiProgram.CurrentWeekViewIndex].Days[MauiProgram.CurrentDayViewIndex].Foods.Add(newFood);
             DataStorage.FoodNameTree.Insert(new TreeNode(newFood.Name));
             DataStorage.SaveNameTree();
+            DataStorage.LoadedFoodData.Add(newFood);
             await Shell.Current.GoToAsync(nameof(FoodPage));
         }
 

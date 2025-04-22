@@ -91,7 +91,7 @@ namespace NutriWeekMAUI
         public static void LoadProgramData()
         {
             LoadNameTree();
-            //LoadAllFoodData();
+            LoadAllFoodData();
             //StoredWeeks = LoadSerializedData("C:\\Users\\SamDo\\source\\repos\\NutriWeekMAUI\\weeks.db") as List<Week>;
             if(StoredWeeks == null || StoredWeeks.Count() == 0)
             {
