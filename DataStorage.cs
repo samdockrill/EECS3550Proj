@@ -24,47 +24,6 @@ namespace NutriWeekMAUI
         public static string storagePath = Environment.CurrentDirectory + "nutriWeek.db";
         public static SqliteConnection db;
 
-        /*public static void OpenDatabase()
-        {
-            if (!File.Exists(storagePath))
-            {
-                try
-                {
-                    File.Create(storagePath);
-                    db = new SqliteConnection($"Filename={storagePath}");
-                    db.Open();
-                    
-                    string createFoodTableString = "CREATE TABLE Foods foodname TEXT PRIMARY KEY, manufacturer TEXT, liquid TEXT, ";
-                    for (int i = 0; i < Food.PossibleNutrients.Count(); i++)
-                    {
-                        createFoodTableString += Food.PossibleNutrients[i] + " INTEGER,";
-                    }
-                    QueryDB(createFoodTableString);
-                    QueryDB("CREATE TABLE Days daydate TEXT PRIMARY KEY, foodname TEXT, meal TEXT");
-                    QueryDB("CREATE TABLE Weeks INTEGER weekstartdate PRIMARY KEY, weekname TEXT, day0 TEXT, day1 TEXT, day2 TEXT, day3 TEXT, day4 TEXT, day5 TEXT, day6 TEXT");
-                }
-                catch
-                {
-                    Console.WriteLine("FATAL: FAILED TO CREATE DATABASE FILE");
-                    Console.ReadLine();
-                    System.Environment.Exit(29);
-                }
-            }
-            else
-            {
-                db = new SqliteConnection($"Filename={storagePath}");
-                db.Open();
-
-                LoadWeeks();
-            }
-
-            return;
-        }
-
-        public static SqliteDataReader QueryDB(String query)
-        {
-            return new SqliteCommand(query, db).ExecuteReader();
-        }*/
 
         public static Dictionary<string, int> NutrientIndicies = new Dictionary<string, int>()
         {
@@ -93,12 +52,10 @@ namespace NutriWeekMAUI
             LoadNameTree();
 
             LoadedFoodData = LoadSerializedData("C:\\Users\\SamDo\\source\\repos\\NutriWeekMAUI\\fooddatabase.db") as List<Food>;
-            //LoadAllFoodData();
             //StoredWeeks = LoadSerializedData("C:\\Users\\SamDo\\source\\repos\\NutriWeekMAUI\\weeks.db") as List<Week>;
             if (StoredWeeks == null || StoredWeeks.Count() == 0)
             {
                 StoredWeeks = new List<Week>();
-
                 StoredWeeks.Add(new Week(DateTime.Now.AddDays(-(int)DateTime.Now.DayOfWeek)));
                 for (int i = 0; i < 7; i++)
                 {
@@ -110,7 +67,7 @@ namespace NutriWeekMAUI
             }
         }
 
-        public static async Task LoadAllFoodData()
+        public static async Task LoadAllFoodDataAsync()
         {
             await Task.Run(() =>
             {

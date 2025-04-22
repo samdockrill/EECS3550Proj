@@ -40,6 +40,7 @@
         Placeholder="Food Name"
         TextColor="DarkSlateGray"
         HorizontalOptions="Start"
+            TextChanged="OnEntryTextChanged1"
         BackgroundColor="MediumSeaGreen"/>
 
         <Label
@@ -55,6 +56,7 @@
         Placeholder="0"
         HorizontalOptions="Start"
         TextColor="DarkSlateGray"
+            TextChanged="OnEntryTextChanged2"
         BackgroundColor="MediumSeaGreen" />
 
         <Label
@@ -70,6 +72,7 @@
         Placeholder="0"
         HorizontalOptions="Start"
         TextColor="DarkSlateGray"
+            TextChanged="OnEntryTextChanged3"
         BackgroundColor="MediumSeaGreen" />
 
         <Label
@@ -85,6 +88,7 @@
         Placeholder="0"
         HorizontalOptions="Start"
         TextColor="DarkSlateGray"
+            TextChanged="OnEntryTextChanged4"
         BackgroundColor="MediumSeaGreen" />
 
             <Label
@@ -100,6 +104,7 @@
         Placeholder="0"
         HorizontalOptions="Start"
         TextColor="DarkSlateGray"
+            TextChanged="OnEntryTextChanged5"
         BackgroundColor="MediumSeaGreen" />
 
             <Label
@@ -115,6 +120,7 @@
         Placeholder="0"
         HorizontalOptions="Start"
         TextColor="DarkSlateGray"
+            TextChanged="OnEntryTextChanged6"
         BackgroundColor="MediumSeaGreen" />
 
             <Label
@@ -130,6 +136,7 @@
         Placeholder="0"
         HorizontalOptions="Start"
         TextColor="DarkSlateGray"
+            TextChanged="OnEntryTextChanged7"
         BackgroundColor="MediumSeaGreen" />
 
             <Label
@@ -145,6 +152,7 @@
         Placeholder="0"
         HorizontalOptions="Start"
         TextColor="DarkSlateGray"
+            TextChanged="OnEntryTextChanged8"
         BackgroundColor="MediumSeaGreen" />
 
             <Label
@@ -160,6 +168,7 @@
         Placeholder="0"
         HorizontalOptions="Start"
         TextColor="DarkSlateGray"
+            TextChanged="OnEntryTextChanged9"
         BackgroundColor="MediumSeaGreen" />
 
             <Label
@@ -175,6 +184,7 @@
         Placeholder="0"
         HorizontalOptions="Start"
         TextColor="DarkSlateGray"
+            TextChanged="OnEntryTextChanged10"
         BackgroundColor="MediumSeaGreen" />
 
             <Label
@@ -190,6 +200,7 @@
         Placeholder="0"
         HorizontalOptions="Start"
         TextColor="DarkSlateGray"
+            TextChanged="OnEntryTextChanged11"
         BackgroundColor="MediumSeaGreen" />
 
             <Label
@@ -205,6 +216,7 @@
         Placeholder="0"
         HorizontalOptions="Start"
         TextColor="DarkSlateGray"
+            TextChanged="OnEntryTextChanged12"
         BackgroundColor="MediumSeaGreen" />
 
             <Label
@@ -220,6 +232,7 @@
         Placeholder="0"
         HorizontalOptions="Start"
         TextColor="DarkSlateGray"
+            TextChanged="OnEntryTextChanged13"
         BackgroundColor="MediumSeaGreen" />
 
             <Label
@@ -235,6 +248,7 @@
         Placeholder="0"
         HorizontalOptions="Start"
         TextColor="DarkSlateGray"
+            TextChanged="OnEntryTextChanged14"
         BackgroundColor="MediumSeaGreen" />
 
             <Label
@@ -250,6 +264,7 @@
         Placeholder="0"
         HorizontalOptions="Start"
         TextColor="DarkSlateGray"
+            TextChanged="OnEntryTextChanged15"
         BackgroundColor="MediumSeaGreen" />
 
             <Label
@@ -265,6 +280,7 @@
         Placeholder="0"
         HorizontalOptions="Start"
         TextColor="DarkSlateGray"
+            TextChanged="OnEntryTextChanged16"
         BackgroundColor="MediumSeaGreen" />
 
             <Label
@@ -280,6 +296,7 @@
         Placeholder="0"
         HorizontalOptions="Start"
         TextColor="DarkSlateGray"
+            TextChanged="OnEntryTextChanged17"
         BackgroundColor="MediumSeaGreen" />
 
             <Label
@@ -295,6 +312,7 @@
         Placeholder="0"
         HorizontalOptions="Start"
         TextColor="DarkSlateGray"
+            TextChanged="OnEntryTextChanged18"
         BackgroundColor="MediumSeaGreen" />
 
             <Label
@@ -310,41 +328,12 @@
         Placeholder="0"
         HorizontalOptions="Start"
         TextColor="DarkSlateGray"
-        BackgroundColor="MediumSeaGreen" />
-
-            <Label
-        Grid.Row="20"
-        Grid.ColumnSpan="2"
-        Text="Copper Value:"
-        TextColor="DarkSlateGray" />
-
-            <Entry
-        Grid.Row="20"
-        Grid.Column="2"
-        Grid.ColumnSpan="2"
-        Placeholder="0"
-        HorizontalOptions="Start"
-        TextColor="DarkSlateGray"
-        BackgroundColor="MediumSeaGreen" />
-
-            <Label
-        Grid.Row="21"
-        Grid.ColumnSpan="2"
-        Text="Manganese Value:"
-        TextColor="DarkSlateGray" />
-
-            <Entry
-        Grid.Row="21"
-        Grid.Column="2"
-        Grid.ColumnSpan="2"
-        Placeholder="0"
-        HorizontalOptions="Start"
-        TextColor="DarkSlateGray"
+            TextChanged="OnEntryTextChanged19"
         BackgroundColor="MediumSeaGreen" />
 
             <Button
         x:Name="EnterBtn"
-        Grid.Row="22"
+        Grid.Row="20"
         Grid.ColumnSpan="2"
         BackgroundColor="MediumSeaGreen"
         Text="Enter Data"
@@ -358,7 +347,7 @@
 
         <Button
         x:Name="BackBtn"
-        Grid.Row="23"
+        Grid.Row="21"
         Grid.ColumnSpan="2"
         BackgroundColor="MediumSeaGreen"
         Text="Go Back"

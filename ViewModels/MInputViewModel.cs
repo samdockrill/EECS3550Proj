@@ -28,17 +28,22 @@ namespace NutriWeekMAUI.ViewModels
         [ObservableProperty]
         string text;
 
+        public Food newFood = new Food("New Food");
+
         /// This is used to register all of the maunally entered food data and add it to the current day
         [RelayCommand]
         async Task EnterManualData()
         {
-            Food newFood = new Food(text);
-            //newFood.FoodNutrients.Add("a", 1);
-            DataStorage.StoredWeeks[MauiProgram.CurrentWeekViewIndex].Days[MauiProgram.CurrentDayViewIndex].Foods.Add(newFood);
-            DataStorage.FoodNameTree.Insert(new TreeNode(newFood.Name));
-            DataStorage.SaveNameTree();
-            DataStorage.LoadedFoodData.Add(newFood);
-            await Shell.Current.GoToAsync(nameof(FoodPage));
+            if (newFood.Name != "New Food")
+            {
+                //newFood.FoodNutrients.Add("a", 1);
+                DataStorage.StoredWeeks[MauiProgram.CurrentWeekViewIndex].Days[MauiProgram.CurrentDayViewIndex].Foods.Add(newFood);
+                DataStorage.FoodNameTree.Insert(new TreeNode(newFood.Name));
+                DataStorage.SaveNameTree();
+                DataStorage.LoadedFoodData.Add(newFood);
+            }
+            DataStorage.StoredWeeks[MauiProgram.CurrentWeekViewIndex].Days[MauiProgram.CurrentDayViewIndex].Foods.RemoveAll((Food f) => { return f.Name == "New Food"; });
+            await Shell.Current.GoToAsync(nameof(DayPage));
         }
 
         /// This is used to go back to the day page
