@@ -1,6 +1,7 @@
 ﻿using NutriWeek.DataStructures;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Runtime.ConstrainedExecution;
 using System.Text;
@@ -13,15 +14,14 @@ namespace NutriWeekMAUI.InputSystems
     {
         /// <summary>
         /// Returns a list of strings containing all foods that match the currently typed input
-        /// Could return a list of Food objects instead, potentially? Either one should work fine
         /// </summary>
         /// <returns></returns>
         
-        public static List<string> GetAutoCompleteList(string input)
+        public static ObservableCollection<string> GetAutoCompleteList(string input)
         {
-            TreeNode Cur = NameTree.Root;
+            TreeNode Cur = DataStorage.FoodNameTree.Root;
             TreeNode FirstNode = null;
-            List<string> AutoCompleteList = new List<string>();
+            ObservableCollection<string> AutoCompleteList = new ObservableCollection<string>();
 
             if (input.Length < 4)
             {
@@ -47,7 +47,7 @@ namespace NutriWeekMAUI.InputSystems
             {
                 while (Cur != null) // Goes through the root (middle) and left half of the tree.
                 {
-                    if (Cur.Parent == null) FirstNode = NameTree.Root;
+                    if (Cur.Parent == null) FirstNode = DataStorage.FoodNameTree.Root;
                     else if (Cur.FoodName[0].CompareTo(Cur.Parent.FoodName[0]) != 0) FirstNode = Cur;
 
                     if (Cur.FoodName.Contains(input)) AutoCompleteList.Add(Cur.FoodName);
@@ -56,11 +56,11 @@ namespace NutriWeekMAUI.InputSystems
                     else Cur = FirstNode.Left;
                 }
 
-                Cur = NameTree.Root.Right;
+                Cur = DataStorage.FoodNameTree.Root.Right;
                 FirstNode = null;
                 while (Cur != null) // Goes through the right half of the tree.
                 {
-                    if (Cur.Parent == null) FirstNode = NameTree.Root;
+                    if (Cur.Parent == null) FirstNode = DataStorage.FoodNameTree.Root;
                     else if (Cur.FoodName[0].CompareTo(Cur.Parent.FoodName[0]) != 0) FirstNode = Cur;
 
                     if (Cur.FoodName.Contains(input)) AutoCompleteList.Add(Cur.FoodName);
@@ -72,6 +72,6 @@ namespace NutriWeekMAUI.InputSystems
             }
 
             return AutoCompleteList;
-    }
+        }
     }
 }

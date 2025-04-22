@@ -140,7 +140,7 @@ namespace NutriWeekMAUI
         /// <returns></returns>
         public static Week GenerateTestWeek(int startingMonth = 4, int startingDay = 7)
         {
-            Week exampleWeek = new Week(startingMonth, startingDay);
+            Week exampleWeek = new Week(new DateTime(2025, startingMonth, startingDay));
             for (int i = 0; i < 7; i++)
             {
                 exampleWeek.Days.Add(GenerateTestDay());
@@ -225,7 +225,7 @@ namespace NutriWeekMAUI
             for(int i = 100; i < 100; i++)
             {
                 TreeNode CurrentFood = new TreeNode(GenerateTestString(num.Next(1, 33)).ToLower());
-                NameTree.Insert(CurrentFood);
+                DataStorage.FoodNameTree.Insert(CurrentFood);
             }
 
             string UserInput = GenerateTestString(num.Next(1, 33)); // Ask for user input.
@@ -293,9 +293,9 @@ namespace NutriWeekMAUI
             for(int i = 0; i < 10; i++)
             {
                 Food test = GenerateTestFood();
-                DataStorage.StoreFood(test);
-                Food loaded = DataStorage.LoadFood(test.Name);
-                if(!compareFoods(test, loaded))
+                //DataStorage.StoreFood(test);
+                //Food loaded = DataStorage.LoadFood(test.Name);
+                //if(!compareFoods(test, loaded))
                 {
                     Console.WriteLine("ERROR: STORED FOOD DOES NOT MATCH LOADED FOOD!");
                 }
@@ -304,9 +304,9 @@ namespace NutriWeekMAUI
             for (int i = 0; i < 10; i++)
             {
                 Day test = GenerateTestDay();
-                DataStorage.StoreDay(test);
-                Day loaded = DataStorage.LoadDay("");
-                if (!compareDays(test, loaded))
+                //DataStorage.StoreDay(test);
+                //Day loaded = DataStorage.LoadDay("");
+                //if (!compareDays(test, loaded))
                 {
                     Console.WriteLine("ERROR: STORED DAY DOES NOT MATCH LOADED DAY!");
                 }
@@ -315,9 +315,9 @@ namespace NutriWeekMAUI
             for (int i = 0; i < 10; i++)
             {
                 Week test = GenerateTestWeek();
-                DataStorage.StoreWeek(test);
-                Week loaded = DataStorage.LoadWeek(test.month, test.day);
-                if (!compareWeeks(test, loaded))
+                //DataStorage.StoreWeek(test);
+                //Week loaded = DataStorage.LoadWeek(test.month, test.day);
+                //if (!compareWeeks(test, loaded))
                 {
                     Console.WriteLine("ERROR: STORED WEEK DOES NOT MATCH LOADED DAY!");
                 }

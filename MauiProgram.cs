@@ -13,7 +13,7 @@ namespace NutriWeekMAUI
 
         public static MauiApp CreateMauiApp()
         {
-            DataStorage.LoadWeeks();
+            DataStorage.LoadProgramData();
             var builder = MauiApp.CreateBuilder();
             builder
                 .UseMauiApp<App>()

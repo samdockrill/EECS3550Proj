@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace NutriWeekMAUI.DataStructures
 {
+    [Serializable]
     public class Week
     {
         /// <summary>
@@ -13,14 +14,26 @@ namespace NutriWeekMAUI.DataStructures
         /// Used to store/load it
         /// </summary>
         /// 
-        public Week(int startmonth, int startday)
+        public Week(DateTime startday)
         {
-            month = startmonth;
-            day = startday;
+            startDate = startday;
         }
 
-        public int month;
-        public int day;
+        public DateTime startDate;
+        public int month
+        {
+            get
+            {
+                return startDate.Month;
+            }
+        }
+        public int day
+        {
+            get
+            {
+                return startDate.Day;
+            }
+        }
 
         public string StartDate
         {

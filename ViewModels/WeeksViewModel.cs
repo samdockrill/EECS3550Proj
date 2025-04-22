@@ -47,22 +47,12 @@ namespace NutriWeekMAUI.ViewModels
             //if the selected week has the text " + Create New Week", create a new week
             if (s == " + Create New Week")
             {
-                int day = DataStorage.StoredWeeks[DataStorage.StoredWeeks.Count - 1].day;
-                int month = DataStorage.StoredWeeks[DataStorage.StoredWeeks.Count - 1].month;
+                DateTime day = DataStorage.StoredWeeks[DataStorage.StoredWeeks.Count - 1].startDate;
 
-                day += 7;
-                if(day > 30)
-                {
-                    day -= 30;
-                    month++;
-                    if(month > 12)
-                    {
-                        month = 0;
-                    }
-                }
+                day = day.AddDays(7);
 
                 // Create a new week and add it to the list
-                Week newWeek = new Week(month, day);
+                Week newWeek = new Week(day);
                 s = newWeek.StartDate;
                 for (int i = 0; i < 7; i++)
                 {

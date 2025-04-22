@@ -12,7 +12,7 @@ namespace NutriWeek.DataStructures
     /// <summary>
     /// Custom tree structure to allow very fast searching of food names
     /// </summary>
-
+    [Serializable]
     public class TreeNode
     {
         public string FoodName = "";
@@ -26,10 +26,12 @@ namespace NutriWeek.DataStructures
             FoodName = Name;
         }
     }
-    public static class NameTree
+
+    [Serializable]
+    public class NameTree
     {
-        public static TreeNode Root = null;
-        public static void Insert(TreeNode Node)
+        public TreeNode Root = null;
+        public void Insert(TreeNode Node)
         {
             if (Root == null)
             {

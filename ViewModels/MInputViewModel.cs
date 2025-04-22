@@ -2,6 +2,7 @@
 
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
+using NutriWeek.DataStructures;
 using NutriWeekMAUI.DataStructures;
 using System.Collections.ObjectModel;
 
@@ -31,6 +32,10 @@ namespace NutriWeekMAUI.ViewModels
         [RelayCommand]
         async Task EnterManualData()
         {
+            Food newFood = new Food(text);
+            DataStorage.StoredWeeks[MauiProgram.CurrentWeekViewIndex].Days[MauiProgram.CurrentDayViewIndex].Foods.Add(newFood);
+            DataStorage.FoodNameTree.Insert(new TreeNode(newFood.Name));
+            DataStorage.SaveNameTree();
             await Shell.Current.GoToAsync(nameof(FoodPage));
         }
 

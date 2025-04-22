@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace NutriWeekMAUI.DataStructures
 {
+    [Serializable]
     public class Day
     {
         /// <summary>

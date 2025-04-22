@@ -20,7 +20,7 @@ namespace NutriWeekMAUI.ViewModels
             if(MauiProgram.CurrentFood.Name == "New Food")
             {
                 Inputs.Add("TapNType");
-                //Days.Add("Scan Barcode");
+                Inputs.Add("Scan Barcode");
                 //Days.Add("Recommended options");
                 Inputs.Add("Manual Input");
             }
@@ -62,6 +62,10 @@ namespace NutriWeekMAUI.ViewModels
             else if (s.Contains("Manual Input"))
             {
                 await Shell.Current.GoToAsync(nameof(MInputPage));
+            }
+            else if (s.Contains("Scan Barcode"))
+            {
+                await Shell.Current.GoToAsync(nameof(CameraPage));
             }
         }
 

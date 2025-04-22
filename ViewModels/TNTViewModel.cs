@@ -3,6 +3,7 @@
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using NutriWeekMAUI.DataStructures;
+using NutriWeekMAUI.InputSystems;
 using System.Collections.ObjectModel;
 
 namespace NutriWeekMAUI.ViewModels
@@ -16,7 +17,7 @@ namespace NutriWeekMAUI.ViewModels
         public TNTViewModel()
         {
             Foods = new ObservableCollection<string>();
-
+            GetSearchResults();
         }
 
         /// Collection of days
@@ -41,9 +42,10 @@ namespace NutriWeekMAUI.ViewModels
             }
 
             //Get the search results from the TapNType method
-
-            Text = string.Empty;
+            Foods = TapnType.GetAutoCompleteList(Text);
         }
+
+        List<Food> CachedFoodResults = new List<Food>();
 
         /// This is used to pass the desired food item to the DayPage
         [RelayCommand]
