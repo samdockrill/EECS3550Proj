@@ -17,6 +17,13 @@ public partial class TNTPage : ContentPage
 
     public void OnEntryTextChanged(object sender, TextChangedEventArgs e)
     {
-        model.Foods = TapnType.GetAutoCompleteList(newText);
+        if(e.NewTextValue == null || e.NewTextValue == "")
+        {
+            model.Foods = new System.Collections.ObjectModel.ObservableCollection<string>();
+        }
+        else
+        {
+            model.Foods = TapnType.GetAutoCompleteList(e.NewTextValue);
+        }
     }
 }

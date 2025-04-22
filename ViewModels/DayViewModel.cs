@@ -23,18 +23,21 @@ namespace NutriWeekMAUI.ViewModels
                 ChosenFood.Add(f.Name);
             }
 
-            //Add a button to add a new food if there are less than 3 foods
-            if (ChosenFood.Count < 3)
-            {
-                ChosenFood.Add(" + Add a New Food");
-            }
+            ChosenFood.Add(" + Add a New Food");
 
             //Add a button to view the nutrition data
             string nutrition = "Full Daily Nutrition Data: \n";
 
             foreach (KeyValuePair<string, float> k in DataStorage.StoredWeeks[MauiProgram.CurrentWeekViewIndex].Days[MauiProgram.CurrentDayViewIndex].DailyValues)
             {
-                nutrition += k.Key + ": " + k.Value + "\n";
+                nutrition += k.Key + ": " + k.Value;
+
+                if (DataStorage.DefaultDVs.ContainsKey(k.Key))
+                {
+                    nutrition += " / " + DataStorage.DefaultDVs[k.Key];
+                }
+
+                nutrition += "\n";
             }
 
             ChosenFood.Add(nutrition);

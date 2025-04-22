@@ -54,7 +54,12 @@ namespace NutriWeekMAUI.ViewModels
         [RelayCommand]
         async Task AddToDay(string s)
         {
-            DataStorage.StoredWeeks[MauiProgram.CurrentWeekViewIndex].Days[MauiProgram.CurrentDayViewIndex].Foods.Add(DataStorage.NameLookup(s));
+            Food newFoodItem = DataStorage.NameLookup(s);
+            if (newFoodItem != null)
+            {
+                DataStorage.StoredWeeks[MauiProgram.CurrentWeekViewIndex].Days[MauiProgram.CurrentDayViewIndex].Foods.Add(newFoodItem);
+            }
+            DataStorage.StoredWeeks[MauiProgram.CurrentWeekViewIndex].Days[MauiProgram.CurrentDayViewIndex].Foods.RemoveAll((Food f) => { return f.Name == "New Food"; });
             await Shell.Current.GoToAsync(nameof(DayPage));
         }
 

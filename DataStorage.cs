@@ -17,7 +17,7 @@ namespace NutriWeekMAUI
     public static class DataStorage
     {
         public static NameTree FoodNameTree = new NameTree();
-        //public static Dictionary<string, float> DefaultDVs = LoadDefaultDVs();
+        public static Dictionary<string, float> DefaultDVs = LoadDefaultDVs();
         public static List<Week> StoredWeeks = new List<Week>();
         public static List<Food> LoadedFoodData = new List<Food>();
 
@@ -77,9 +77,9 @@ namespace NutriWeekMAUI
             {"Fiber", 141 },
             {"Proteins", 145 },
             {"Sodium", 150 },
-            {"Vitamin-a", 153 },
-            {"Vitamin-e", 155 },
-            {"Vitamin-c", 157 },
+            {"Vitamin-A", 153 },
+            {"Vitamin-E", 155 },
+            {"Vitamin-C", 157 },
             {"Potassium", 169 },
             {"Calcium", 171 },
             {"Phosphorous", 172 },
@@ -91,9 +91,11 @@ namespace NutriWeekMAUI
         public static void LoadProgramData()
         {
             LoadNameTree();
-            LoadAllFoodData();
+
+            LoadedFoodData = LoadSerializedData("C:\\Users\\SamDo\\source\\repos\\NutriWeekMAUI\\fooddatabase.db") as List<Food>;
+            //LoadAllFoodData();
             //StoredWeeks = LoadSerializedData("C:\\Users\\SamDo\\source\\repos\\NutriWeekMAUI\\weeks.db") as List<Week>;
-            if(StoredWeeks == null || StoredWeeks.Count() == 0)
+            if (StoredWeeks == null || StoredWeeks.Count() == 0)
             {
                 StoredWeeks = new List<Week>();
 
@@ -345,5 +347,54 @@ namespace NutriWeekMAUI
 
             return null;
         }
+
+        public static Dictionary<string, float> LoadDefaultDVs()
+        {
+            return new Dictionary<string, float>()
+            {
+                { "Fat", 65 },
+                {"Saturated-Fat", 20 },
+                {"Trans-Fat", 20 },
+                {"Cholesterol", 300 },
+                {"Carbohydrates", 300 },
+                {"Sugars", 120 },
+                {"Fiber", 25 },
+                {"Proteins", 50 },
+                {"Sodium", 2400 },
+                {"Vitamin-a", 1000 },
+                {"Vitamin-e", 10 },
+                {"Vitamin-c", 60 },
+                {"Potassium", 3500 },
+                {"Calcium", 750 },
+                {"Phosphorous", 700 },
+                {"Iron", 10 },
+                {"Magnesium", 300 },
+                {"Zinc", 10 },
+            };
+        }
+
+        /*
+         
+          { "Fat", 92 },
+            {"Saturated-Fat", 93 },
+            {"Trans-Fat", 127 },
+            {"Cholesterol", 128 },
+            {"Carbohydrates", 129 },
+            {"Sugars", 130 },
+            {"Fiber", 141 },
+            {"Proteins", 145 },
+            {"Sodium", 150 },
+            {"Vitamin-a", 153 },
+            {"Vitamin-e", 155 },
+            {"Vitamin-c", 157 },
+            {"Potassium", 169 },
+            {"Calcium", 171 },
+            {"Phosphorous", 172 },
+            {"Iron", 173 },
+            {"Magnesium", 174 },
+            {"Zinc", 175 },
+         
+         
+         */
     }
 }

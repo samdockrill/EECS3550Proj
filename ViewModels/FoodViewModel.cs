@@ -30,7 +30,14 @@ namespace NutriWeekMAUI.ViewModels
 
                 foreach (KeyValuePair<string, float> k in MauiProgram.CurrentFood.FoodNutrients)
                 {
-                    nutrition += k.Key + ": " + k.Value + "\n";
+                    nutrition += k.Key + ": " + k.Value;
+
+                    if (DataStorage.DefaultDVs.ContainsKey(k.Key))
+                    {
+                        nutrition += " / " + DataStorage.DefaultDVs[k.Key];
+                    }
+                    
+                    nutrition += "\n";
                 }
 
                 Inputs.Add(nutrition);

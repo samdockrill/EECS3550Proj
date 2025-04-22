@@ -30,18 +30,6 @@
             TextChanged="OnEntryTextChanged"
             BackgroundColor="MediumAquamarine"/>
 
-        <Button
-            x:Name="EnterBtn"
-            Grid.Row="1"
-            Grid.Column="1"
-            BackgroundColor="MediumSeaGreen"
-            Text="Search"
-            Command="{Binding GetSearchResultsCommand}"
-            TextColor="DarkSlateGray"
-            BorderColor="DarkSlateGray"
-            BorderWidth="2"
-            VerticalOptions="Center" />
-
         <CollectionView
             Grid.Row="2"
             Grid.ColumnSpan="2"
