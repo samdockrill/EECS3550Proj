@@ -27,7 +27,7 @@ namespace NutriWeekMAUI
 
         public static Dictionary<string, int> NutrientIndicies = new Dictionary<string, int>()
         {
-            { "Fat", 92 },
+            {"Fat", 92 },
             {"Saturated-Fat", 93 },
             {"Trans-Fat", 127 },
             {"Cholesterol", 128 },
@@ -52,7 +52,7 @@ namespace NutriWeekMAUI
             LoadNameTree();
 
             LoadedFoodData = LoadSerializedData("C:\\Users\\SamDo\\source\\repos\\NutriWeekMAUI\\fooddatabase.db") as List<Food>;
-            //StoredWeeks = LoadSerializedData("C:\\Users\\SamDo\\source\\repos\\NutriWeekMAUI\\weeks.db") as List<Week>;
+            StoredWeeks = LoadSerializedData("C:\\Users\\SamDo\\source\\repos\\NutriWeekMAUI\\weeks.db") as List<Week>;
             if (StoredWeeks == null || StoredWeeks.Count() == 0)
             {
                 StoredWeeks = new List<Week>();
